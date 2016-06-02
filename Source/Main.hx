@@ -5,11 +5,13 @@ import openfl.display.Sprite;
 import openfl.events.Event;
 
 import game.GBackground;
+import game.Game;
 
 
 class Main extends Sprite {
 
 	private var gBackground:GBackground;
+	private var game:Game;
 
 	
 	public function new () {
@@ -22,6 +24,7 @@ class Main extends Sprite {
 		trace('construct');
 
 		addChild(gBackground);
+		addChild(game);
 	}
 
 	private function initialize ():Void {
@@ -29,7 +32,11 @@ class Main extends Sprite {
 		this.removeEventListener(Event.ADDED_TO_STAGE,onAddedToStage);
 		stage.addEventListener (Event.RESIZE, stage_onResize);
 
-		gBackground = new GBackground(this.stage.stageWidth,this.stage.stageHeight,false);
+		var w:Float = stage.stageWidth;
+		var h:Float = stage.stageHeight;
+
+		gBackground = new GBackground(w,h,false);
+		game = new Game(w,h);
 		
 		construct();
 	}
@@ -37,7 +44,7 @@ class Main extends Sprite {
 	private function resize (newWidth:Int, newHeight:Int):Void {
 		trace('resize');
 		gBackground.reDraw(newWidth,newHeight);
-		
+		game.restart();
 	}
 	
 	

@@ -42,9 +42,16 @@ class Game extends Sprite {
 
 	public var currentScale:Float;
 
+	private var nWidth:Float;
+	private var nHeight:Float;
 
-	public function new(){
+
+	public function new(newWidth:Float,newHeight:Float){
 		super();
+
+		nWidth = newWidth;
+		nHeight = newHeight;
+
 		init();
 	}
 	public function init():Void{
@@ -58,22 +65,23 @@ class Game extends Sprite {
 	}
 	public function construct():Void{
 		// The values are set in Project.xml
-		var bgWidth:UInt = 700;
-		var bgHeight:UInt = 1100;
+		//var bgWidth:UInt = 700;
+		//var bgHeight:UInt = 1100;
 
 		//var bgWidth:UInt = this.stage.stageWidth;
 		//var bgHeight:UInt = this.stage.stageHeight;
 		//
-		this.background = this.shapeUtil.getBackground(bgWidth,bgHeight,0xAAAAAA);
-		this.addChild(this.background);
+		//this.background = this.shapeUtil.getBackground(bgWidth,bgHeight,0xAAAAAA);
+		//this.addChild(this.background);
 
-		this.background.y = 10;
+		//this.background.y = 10;
 
 		this.shapeContainer = new Sprite();
 		this.addChild(this.shapeContainer);
 
 		this.menu = new Menu();
-		this.menu.y = this.background.y+ bgHeight + 40;
+		this.menu.y = nHeight - menu.height;
+
 		this.menu.addEventListener(EventNames.GAME_RESTART,onGameRestart);
 		this.menu.addEventListener(EventNames.GAME_NEW_PATTERN,onGameNewPattern);
 		this.menu.addEventListener(EventNames.GAME_PAUSE,onGamePause);
@@ -97,7 +105,7 @@ class Game extends Sprite {
 		*/
 
 		// set the container
-		var bgSize:Point = new Point(bgWidth,bgHeight);
+		var bgSize:Point = new Point(nWidth,nHeight);
 		this.pFactory.setContainer(shapeContainer,bgSize);
 		//
 		this.addEventListener(Event.ENTER_FRAME,render);
@@ -161,6 +169,10 @@ class Game extends Sprite {
 		var i:Float = (newWidth / 2 - (currentWidth ) / 2);
 		x = (1)*(i);
 
+	}
+
+	public function restart():Void{
+		trace('restart');
 	}
 
 	//
