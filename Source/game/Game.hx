@@ -105,7 +105,7 @@ class Game extends Sprite {
 		*/
 
 		// set the container
-		var bgSize:Point = new Point(nWidth,nHeight);
+		var bgSize:Point = new Point(nWidth,nHeight - menu.height);
 		this.pFactory.setContainer(shapeContainer,bgSize);
 		//
 		this.addEventListener(Event.ENTER_FRAME,render);
@@ -177,8 +177,9 @@ class Game extends Sprite {
 		nHeight = newHeight;
 
 		this.menu.y = nHeight - menu.height;
+		this.menu.setMenuWidth(newWidth);
 
-		var bgSize:Point = new Point(nWidth,nHeight);
+		var bgSize:Point = new Point(nWidth,nHeight-(menu.height+50));
 		this.pFactory.setContainer(shapeContainer,bgSize);
 
 		cleanAndRenderAgain();

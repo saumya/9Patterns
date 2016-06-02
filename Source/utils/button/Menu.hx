@@ -15,15 +15,23 @@ class Menu extends Sprite {
 
 	private var btnFactory:ButtonFactory;
 	private var btnPause:QuickButtonWithBgColor;
+	private var gameWidth:Float;
 
 	public function new() {
 		super();
+		
 		this.btnFactory = new ButtonFactory();
+		gameWidth = 200;
+
 		construct();
 	}
 
 	public function setPauseButtonLabel(label:String):Void{
 		trace("TODO");
+	}
+	public function setMenuWidth(newWidth:Float):Void{
+		gameWidth = newWidth;
+		makeBg();
 	}
 
 	private function construct():Void{
@@ -55,7 +63,7 @@ class Menu extends Sprite {
 		var g:Graphics = this.graphics;
 		g.clear();
 		g.beginFill(0xAAAAAA,1.0);
-		g.drawRect(0,0,700,120);
+		g.drawRect(0,0,gameWidth,120);
 		g.endFill();
 	}
 	//
