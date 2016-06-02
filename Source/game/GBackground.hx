@@ -20,7 +20,7 @@ class GBackground extends Sprite {
 	function new(newWidth:Float,newHeight:Float,isVector:Bool=false){
 		super();
 		//
-		bgPadding = 10;
+		bgPadding = 0;
 		bgPadding2X = bgPadding * 2;
 		isVectorDisplay = isVector;
 		if(isVectorDisplay){

@@ -124,14 +124,15 @@ class PatternFactory {
 
 	public function pattern_two():Void{
 		clearContainer();
-		var s = shapeUtil.getCircle(30);
+
+		var s = shapeUtil.getCircle(Math.round(Math.random()*30));
 		s.x = get_RandomPosition_InsideContainer().x;
 		s.y = get_RandomPosition_InsideContainer().y;
 		this.patternContainer.addChild(s);
 	}
 	public function pattern_three():Void{
 		clearContainer();
-		var s = shapeUtil.getSquare(30);
+		var s = shapeUtil.getSquare(Math.round(Math.random()*30));
 		s.x = get_RandomPosition_InsideContainer().x;
 		s.y = get_RandomPosition_InsideContainer().y;
 		this.patternContainer.addChild(s);
