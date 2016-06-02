@@ -17,6 +17,8 @@ class Menu extends Sprite {
 	private var btnPause:QuickButtonWithBgColor;
 	private var gameWidth:Float;
 
+	private var patternNumText:QuickButtonWithBgColor;
+
 	public function new() {
 		super();
 		
@@ -33,11 +35,25 @@ class Menu extends Sprite {
 		gameWidth = newWidth;
 		makeBg();
 	}
+	public function setPatternNumText(num:UInt):Void{
+		//trace(num);
+		// for String conversion
+		// cast never work
+		// use the Std.string to do a conversion
+
+		//var s = cast( num , String ) ;
+		var s:String = Std.string(num);
+
+		//trace(Std.is(s,String));
+		
+		patternNumText.setText(s);
+	}
 
 	private function construct():Void{
 		makeBg();
 		//
 		var leftPadding :UInt = 12;
+		var bgColor:UInt = 0xFFFFFF;
 
 		var btnRestart:QuickButtonWithBgColor = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"RESTART",42);
 		btnRestart.addEventListener("click",onRestart);
@@ -54,9 +70,14 @@ class Menu extends Sprite {
 		btnPause.x = leftPadding + btnNew.x+btnNew.width;
 		btnPause.y = btnNew.y;
 
+		patternNumText = btnFactory.getQuickButtonWithBgColor(bgColor,"1");
+		patternNumText.x = btnRestart.x+btnRestart.width+leftPadding;
+		patternNumText.y = 2;
+
 		this.addChild(btnRestart);
 		this.addChild(btnNew);
 		this.addChild(btnPause);
+		this.addChild(patternNumText);
 	}
 	private function makeBg():Void{
 		// The values are set in Project.xml

@@ -51,6 +51,9 @@ class PatternFactory {
 	public function nextPattern():Void{
 		this.patternIndex = this.patternIndex+1;
 	}
+	public function getPatternNum():UInt{
+		return patternIndex;
+	}
 
 	public function renderPattern():Void{
 		//

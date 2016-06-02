@@ -193,6 +193,7 @@ class Game extends Sprite {
 	private function changePattern():Void{
 		this.shapeContainer.removeChildren();
 		this.pFactory.nextPattern();
+		this.menu.setPatternNumText(pFactory.getPatternNum());
 		this.render(null);
 	}
 	// Event Listeners
