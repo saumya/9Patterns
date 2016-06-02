@@ -14,20 +14,20 @@ class GBackground extends Sprite {
 	private var bitmapBG:Bitmap;
 	private var isVectorDisplay:Bool;
 	private var bgPadding:Float;
+	private var bgPadding2X:Float;
 
 
 	function new(newWidth:Float,newHeight:Float,isVector:Bool=false){
 		super();
 		//
 		bgPadding = 10;
+		bgPadding2X = bgPadding * 2;
 		isVectorDisplay = isVector;
 		if(isVectorDisplay){
 			draw(newWidth,newHeight);
 		}else{
 			makeBitmapBg(newWidth,newHeight);
 		}
-		//draw(newWidth,newHeight); // Vector Draw
-		//makeBitmapBg(newWidth,newHeight); // Image Draw
 	}
 
 	private function makeBitmapBg(newWidth:Float,newHeight:Float):Void{
@@ -40,28 +40,21 @@ class GBackground extends Sprite {
 	}
 	private function resizeBitmap(newWidth:Float,newHeight:Float):Void{
 
-		var p:Float = 2*bgPadding;
-
-		bitmapBG.width = newWidth-p;
-		bitmapBG.height = newHeight-p;
+		bitmapBG.width = newWidth-bgPadding2X;
+		bitmapBG.height = newHeight-bgPadding2X;
 	}
 
 	private function draw(newWidth:Float,newHeight:Float):Void{
-		trace('draw');
 		var c:UInt = 0xCCCCCC;
-		var p:Float = 2*bgPadding;
-
+		//
 		var g:Graphics = this.graphics;
 		g.clear();
 		g.beginFill(c,1.0);
-		g.drawRect(bgPadding,bgPadding,newWidth-p,newHeight-p);
+		g.drawRect(bgPadding,bgPadding,newWidth-bgPadding2X,newHeight-bgPadding2X);
 		g.endFill();
 	}
 
 	public function reDraw(newWidth:Float,newHeight:Float):Void{
-		trace('reDraw');
-		//this.graphics.clear();
-		//draw(newWidth,newHeight);
 		if(isVectorDisplay){
 			draw(newWidth,newHeight);
 		}else{

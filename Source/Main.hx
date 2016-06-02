@@ -29,7 +29,7 @@ class Main extends Sprite {
 		this.removeEventListener(Event.ADDED_TO_STAGE,onAddedToStage);
 		stage.addEventListener (Event.RESIZE, stage_onResize);
 
-		gBackground = new GBackground(this.stage.stageWidth,this.stage.stageHeight,true);
+		gBackground = new GBackground(this.stage.stageWidth,this.stage.stageHeight,false);
 		
 		construct();
 	}
