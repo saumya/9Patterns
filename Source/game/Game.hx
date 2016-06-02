@@ -170,16 +170,17 @@ class Game extends Sprite {
 		x = (1)*(i);
 
 	}
-
+	// This actually renders the final output
 	public function restart(newWidth:Float,newHeight:Float):Void{
 		trace('restart');
+		//
 		nWidth = newWidth;
 		nHeight = newHeight;
 
 		this.menu.y = nHeight - menu.height;
 		this.menu.setMenuWidth(newWidth);
 
-		var bgSize:Point = new Point(nWidth,nHeight-(menu.height+50));
+		var bgSize:Point = new Point(nWidth,nHeight-(menu.height+10));// Change the value of 10 to render towards upper part
 		this.pFactory.setContainer(shapeContainer,bgSize);
 
 		cleanAndRenderAgain();
