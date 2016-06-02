@@ -1,5 +1,6 @@
 9 Patterns
 ================
+An [OpenFL][2] application to generate patterns.
 
 ### Assets Used
 
@@ -22,3 +23,4 @@ openfl test neko
 
 
 [1]: https://www.fontsquirrel.com/fonts/archistico
+[2]: http://openfl.org/
