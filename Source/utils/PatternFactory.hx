@@ -50,6 +50,9 @@ class PatternFactory {
 	// API
 	public function nextPattern():Void{
 		this.patternIndex = this.patternIndex+1;
+		if(patternIndex>=15){
+			this.patternIndex = 1;
+		}
 	}
 	public function getPatternNum():UInt{
 		return patternIndex;
@@ -93,8 +96,9 @@ class PatternFactory {
 			case 14:
 				pattern_14();
 			default:
-				this.patternIndex = 1;
-				pattern_one();
+				trace('case : default : TODO:Fix it for a better experience.');
+				//this.patternIndex = 1;
+				//pattern_one();
 		}
 		
 		//pattern_9();
