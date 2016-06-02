@@ -171,8 +171,17 @@ class Game extends Sprite {
 
 	}
 
-	public function restart():Void{
+	public function restart(newWidth:Float,newHeight:Float):Void{
 		trace('restart');
+		nWidth = newWidth;
+		nHeight = newHeight;
+
+		this.menu.y = nHeight - menu.height;
+
+		var bgSize:Point = new Point(nWidth,nHeight);
+		this.pFactory.setContainer(shapeContainer,bgSize);
+
+		cleanAndRenderAgain();
 	}
 
 	//

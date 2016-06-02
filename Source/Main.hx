@@ -44,7 +44,7 @@ class Main extends Sprite {
 	private function resize (newWidth:Int, newHeight:Int):Void {
 		trace('resize');
 		gBackground.reDraw(newWidth,newHeight);
-		game.restart();
+		game.restart(newWidth,newHeight);
 	}
 	
 	
