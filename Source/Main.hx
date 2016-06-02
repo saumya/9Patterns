@@ -1,89 +1,49 @@
-/*
+//
 package;
 
-
-import openfl.display.Sprite;
-
-
-class Main extends Sprite {
-	
-	
-	public function new () {
-		
-		super ();
-		
-		
-		
-	}
-	
-	
-}
-*/
-package;
-
-
-import openfl.display.Bitmap;
-import openfl.display.BitmapData;
 import openfl.display.Sprite;
 import openfl.events.Event;
-import openfl.events.KeyboardEvent;
-import openfl.system.Capabilities;
-import openfl.Assets;
-import openfl.Lib;
 
-import game.Game;
+import game.GBackground;
 
-// TODO: 
-// 1. Make a Button Contianer
-// 2. Put all Buttons there.
 
-// Main Game
 class Main extends Sprite {
 
-	private var Background:Bitmap;
-	private var Footer:Bitmap;
-	private var Game:Game; 	
+	private var gBackground:GBackground;
+
 	
 	public function new () {
 		
 		super ();
-		
+		/*
 		initialize ();
 		construct ();
 		
 		resize (stage.stageWidth, stage.stageHeight);
 		stage.addEventListener (Event.RESIZE, stage_onResize);
+		*/
+		this.addEventListener(Event.ADDED_TO_STAGE,onAddedToStage);
 	}
 
 	private function construct ():Void {
-		
-		Footer.smoothing = true;
-		
-		addChild (Background);
-		addChild (Footer);
-		addChild (Game);
-		
+		trace('construct');
+
+		addChild(gBackground);
 	}
 
 	private function initialize ():Void {
+		trace('initialize');
+
+		stage.addEventListener (Event.RESIZE, stage_onResize);
+
+		gBackground = new GBackground(this.stage.stageWidth,this.stage.stageHeight);
 		
-		Background = new Bitmap (Assets.getBitmapData ("images/background_tile.png"));
-		Footer = new Bitmap (Assets.getBitmapData ("images/center_bottom.png"));
-		Game = new Game ();
-		
+		construct();
 	}
 
 	private function resize (newWidth:Int, newHeight:Int):Void {
-		
-		Background.width = newWidth;
-		Background.height = newHeight;
-		
-		Game.resize (newWidth, newHeight);
-		
-		Footer.scaleX = Game.currentScale;
-		Footer.scaleY = Game.currentScale;
-		Footer.x = newWidth / 2 - Footer.width / 2;
-		Footer.y = newHeight - Footer.height;
+		trace('resize');
+		gBackground.reDraw(newWidth,newHeight);
 		
 	}
 	
@@ -92,6 +52,11 @@ class Main extends Sprite {
 		
 		resize (stage.stageWidth, stage.stageHeight);
 		
+	}
+
+	private function onAddedToStage(event:Event):Void{
+		trace('onAddedToStage');
+		initialize();
 	}
 	
 	
