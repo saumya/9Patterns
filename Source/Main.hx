@@ -15,13 +15,6 @@ class Main extends Sprite {
 	public function new () {
 		
 		super ();
-		/*
-		initialize ();
-		construct ();
-		
-		resize (stage.stageWidth, stage.stageHeight);
-		stage.addEventListener (Event.RESIZE, stage_onResize);
-		*/
 		this.addEventListener(Event.ADDED_TO_STAGE,onAddedToStage);
 	}
 
@@ -33,10 +26,10 @@ class Main extends Sprite {
 
 	private function initialize ():Void {
 		trace('initialize');
-
+		this.removeEventListener(Event.ADDED_TO_STAGE,onAddedToStage);
 		stage.addEventListener (Event.RESIZE, stage_onResize);
 
-		gBackground = new GBackground(this.stage.stageWidth,this.stage.stageHeight);
+		gBackground = new GBackground(this.stage.stageWidth,this.stage.stageHeight,true);
 		
 		construct();
 	}
