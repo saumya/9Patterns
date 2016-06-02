@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<meta title="9Patterns" package="com.saumya.9patterns" version="1.0.0" company="saumya" />
+	
+	<app main="Main" path="Export" file="9Patterns" />
+
+	<icon path="Assets/images/icon.svg" />
+
+	<window width="800" height="600" if="desktop" />
+	<window width="0" height="0" if="html5" />
+	
+	<source path="Source" />
+	
+	<haxelib name="openfl" />
+	<haxelib name="actuate" />
+
+	<assets path="Assets" rename="assets" />
+
+	<assets path="Assets/fonts" rename="fonts" include="*.ttf" />
+	<assets path="Assets/images" rename="images" include="*" exclude="icon.svg" />
+
+	
+	
+</project>
