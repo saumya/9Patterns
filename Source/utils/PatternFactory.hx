@@ -151,7 +151,7 @@ class PatternFactory {
 		var i:UInt = 1000 - n;
 		var j:UInt = Math.round(30*(n/1000));
 
-		var s = shapeUtil.getSquare(j,0,false );
+		var s = shapeUtil.getSquare(j,0,false);
 		s.rotation = n;
 		s.x = get_CenterPosition_InsideContainer().x + (Math.sin(i) * (i/4)) ;
 		s.y = get_CenterPosition_InsideContainer().y + (Math.cos(i) * (i/4)) ;

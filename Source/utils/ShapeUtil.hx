@@ -48,10 +48,14 @@ class ShapeUtil {
 		if (hasBorder) {
 			g.lineStyle(1,0xFFFFFF);
 		}
-		
+
+		// make it in center by starting the drawing from negative half
+		var cx:Float = 0 ;
+		var cy:Float = 0 ;
+		cx = cy = (-1)*(radius/2) ;
 
 		g.beginFill(c,1.0);
-		g.drawCircle(0,0,radius);
+		g.drawCircle(cx,cy,radius);
 		g.endFill();
 		return s;
 	}
@@ -71,8 +75,13 @@ class ShapeUtil {
 			g.lineStyle(1,0xFFFFFF);
 		}
 
+		// make it in center by starting the drawing from negative half
+		var cx:Float = 0 ;
+		var cy:Float = 0 ;
+		cx = cy = (-1)*(length/2) ;
+		//
 		g.beginFill(c,1.0);
-		g.drawRect(0,0,length,length);
+		g.drawRect(cx,cy,length,length);
 		g.endFill();
 		return s;
 	}
