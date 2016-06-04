@@ -120,7 +120,7 @@ class PatternFactory {
 		var n = patternContainer.numChildren;
 		var i:UInt = (1000 - n)+1;
 
-		var sizeNum:UInt = Math.round((30*i/1000));
+		var sizeNum:UInt = Math.round((30*n/1000));
 		var s = shapeUtil.getCircle(sizeNum, 0xAAAAAA,true );
 
 		s.x = get_CenterPosition_InsideContainer().x + (Math.sin(i)*(i/4));

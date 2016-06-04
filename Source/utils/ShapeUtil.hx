@@ -52,7 +52,7 @@ class ShapeUtil {
 		// make it in center by starting the drawing from negative half
 		var cx:Float = 0 ;
 		var cy:Float = 0 ;
-		cx = cy = (-1)*(radius/2) ;
+		//cx = cy = (-1)*(radius/2) ;
 
 		g.beginFill(c,1.0);
 		g.drawCircle(cx,cy,radius);
