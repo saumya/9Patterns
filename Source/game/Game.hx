@@ -7,7 +7,11 @@ import openfl.display.Sprite;
 import openfl.display.Graphics;
 import openfl.display.Shape;
 
+import openfl.display.PNGEncoderOptions;
+import openfl.display.JPEGEncoderOptions;
+
 import openfl.geom.Point;
+import openfl.geom.Rectangle;
 
 import openfl.system.Capabilities;
 
@@ -17,6 +21,10 @@ import openfl.Lib;
 import openfl.events.Event;
 import openfl.events.KeyboardEvent;
 import openfl.events.MouseEvent;
+
+import openfl.utils.ByteArray;
+
+import sys.io.FileOutput;
 
 import utils.ShapeUtil;
 import utils.ButtonFactory;
@@ -85,6 +93,7 @@ class Game extends Sprite {
 		this.menu.addEventListener(EventNames.GAME_RESTART,onGameRestart);
 		this.menu.addEventListener(EventNames.GAME_NEW_PATTERN,onGameNewPattern);
 		this.menu.addEventListener(EventNames.GAME_PAUSE,onGamePause);
+		this.menu.addEventListener(EventNames.SAVE_IMAGE,onSaveImage);
 		this.addChild(menu);
 
 		/*
@@ -221,6 +230,37 @@ class Game extends Sprite {
 			this.removeEventListener(Event.ENTER_FRAME,render);
 			this.isPaused = true;
 		}
+	}
+	private function onSaveImage(e:Event):Void{
+		trace('onSaveImage');
+		//shapeContainer
+
+		// Ref : 
+		// http://stackoverflow.com/questions/22630008/save-bitmapdata-bytearray-as-a-png-file
+		// http://community.openfl.org/t/bitmapdata-encode-method-solved/560/2
+
+		// Making a BitmapData from the Sprite
+		var s:Sprite = shapeContainer;
+		var r:Rectangle = new Rectangle(0,0,Std.int( s.width ),Std.int( s.height ));
+		var image:BitmapData = new BitmapData( Std.int( s.width ), Std.int( s.height ), false, 0x00FF00);
+		image.draw(s);
+
+		//
+		var p:PNGEncoderOptions = new PNGEncoderOptions();
+		var b:ByteArray = image.encode(image.rect,p);
+
+		var fo:FileOutput = sys.io.File.write("screen_9Patterns.png", true);
+		fo.writeString(b.toString());
+		fo.close();
+
+		trace("onSaveImage : Done");
+
+		
+		// Saving the BitmapData
+		//var b:ByteArray = image.encode("png", 1);
+		//var fo:FileOutput = sys.io.File.write("screen_9Patterns.png", true);
+		//fo.writeString(b.toString());
+		//fo.close();
 	}
 
 }

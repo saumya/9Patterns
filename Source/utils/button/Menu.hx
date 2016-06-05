@@ -70,6 +70,11 @@ class Menu extends Sprite {
 		//btnPause.x = leftPadding + btnNew.x+btnNew.width;
 		//btnPause.y = btnNew.y;
 
+		var btnSaveImage = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"SAVE IMAGE",42);
+		btnSaveImage.addEventListener("click",onSaveImage);
+		btnSaveImage.x = btnNew.x + btnNew.width + leftPadding;
+		btnSaveImage.y = btnNew.y;
+
 		patternNumText = btnFactory.getQuickButtonWithBgColor(bgColor,"1");
 		patternNumText.x = btnRestart.x+btnRestart.width+leftPadding;
 		patternNumText.y = 2;
@@ -81,6 +86,7 @@ class Menu extends Sprite {
 		this.addChild(btnNew);
 		this.addChild(btnPause);
 		this.addChild(patternNumText);
+		addChild(btnSaveImage);
 	}
 	private function makeBg():Void{
 		// The values are set in Project.xml
@@ -101,6 +107,10 @@ class Menu extends Sprite {
 	}
 	private function onPause(e:MouseEvent):Void{
 		var newEvent:Event = new Event(EventNames.GAME_PAUSE);
+		dispatchEvent(newEvent);
+	}
+	private function onSaveImage(e:MouseEvent):Void{
+		var newEvent:Event = new Event(EventNames.SAVE_IMAGE);
 		dispatchEvent(newEvent);
 	}
 }
