@@ -67,12 +67,15 @@ class Menu extends Sprite {
 
 		this.btnPause = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"PAUSE",42);
 		btnPause.addEventListener("click",onPause);
-		btnPause.x = leftPadding + btnNew.x+btnNew.width;
-		btnPause.y = btnNew.y;
+		//btnPause.x = leftPadding + btnNew.x+btnNew.width;
+		//btnPause.y = btnNew.y;
 
 		patternNumText = btnFactory.getQuickButtonWithBgColor(bgColor,"1");
 		patternNumText.x = btnRestart.x+btnRestart.width+leftPadding;
 		patternNumText.y = 2;
+
+		btnPause.x = leftPadding + patternNumText.x+patternNumText.width + 24;
+		btnPause.y = patternNumText.y;
 
 		this.addChild(btnRestart);
 		this.addChild(btnNew);
