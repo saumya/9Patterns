@@ -6,6 +6,7 @@
 	<app main="Main" path="Export" file="9Patterns" />
 
 	<icon path="Assets/images/icon.svg" />
+	<launchImage path="Assets/images/rayIcon.svg" />
 
 	<window width="800" height="700" if="desktop" />
 	<window width="0" height="0" if="html5" />
@@ -19,6 +20,12 @@
 
 	<assets path="Assets/fonts" rename="fonts" include="*.ttf" />
 	<assets path="Assets/images" rename="images" include="*" exclude="icon.svg" />
+
+	<!-- Singing --
+	<android target-sdk-version="16" minimum-sdk-version="7" />
+	<android install-location="preferExternal" />
+	<certificate if="android" path="/Users/saumyaray/devHome/webApps/haxe/openfl/0_myApps/androidCertificates/r-key.keystore" />
+	-->
 
 	
 	
