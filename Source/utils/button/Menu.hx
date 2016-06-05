@@ -86,7 +86,10 @@ class Menu extends Sprite {
 		this.addChild(btnNew);
 		this.addChild(btnPause);
 		this.addChild(patternNumText);
-		addChild(btnSaveImage);
+		
+		// TODO: Fix this. Until then do not display it
+		// Saving image from Sprite on Phone
+		//addChild(btnSaveImage);
 	}
 	private function makeBg():Void{
 		// The values are set in Project.xml
