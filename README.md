@@ -25,6 +25,10 @@ openfl test neko
  - First [generate the keystore][3]
  - [Follow this][4] to add certificate to the app
 
+ ```
+ keytool -v -genkey -v -keystore myApp.keystore -alias someName -keyalg RSA -validity 10000
+ ```
+
 
 
 
