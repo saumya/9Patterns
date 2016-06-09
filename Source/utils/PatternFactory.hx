@@ -24,7 +24,7 @@ class PatternFactory {
 	}
 	private function construct():Void{
 		shapeUtil = new ShapeUtil();
-		bitmapPatterns = new BitmapPatterns();
+		bitmapPatterns = new BitmapPatterns(shapeUtil);
 		patternIndex = 1;
 	}
 	// First mathod to be called, before anything else

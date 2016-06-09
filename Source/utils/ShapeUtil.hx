@@ -4,8 +4,13 @@ package utils;
 
 import openfl.display.Shape;
 import openfl.display.Graphics;
+import openfl.display.Bitmap;
+import openfl.display.BitmapData;
 
 import openfl.geom.Point;
+
+import openfl.Assets;
+import openfl.Lib;
 
 class ShapeUtil {
 
@@ -115,5 +120,14 @@ class ShapeUtil {
 		var i:Float = Math.random()*this.maxColorValue;
 		var j:UInt = Math.round(i);
 		return j;
+	}
+	//  ########################### Bitmap #############################
+	public function getBitmapSquare():Bitmap{
+		var map:Bitmap = new Bitmap (Assets.getBitmapData ("images/background_tile.png"));
+		return map;
+	}
+	public function getBitmapCircle():Bitmap{
+		var map:Bitmap = new Bitmap (Assets.getBitmapData ("images/background_tile.png"));
+		return map;
 	}
 }
