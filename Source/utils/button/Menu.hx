@@ -66,8 +66,8 @@ class Menu extends Sprite {
 		//var btnNew:QuickButtonWithBgColor = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"NEW",42);
 		var btnNew:BitmapButton = btnFactory.getQuickBitmapButton("play");
 		btnNew.addEventListener("click",onNew);
-		btnNew.x = leftPadding;
-		btnNew.y = btnRestart.y + btnRestart.height + 4;
+		//btnNew.x = leftPadding;
+		//btnNew.y = btnRestart.y + btnRestart.height + 4;
 
 		//this.btnPause = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"PAUSE",42);
 		var btnPause:BitmapButton = btnFactory.getQuickBitmapButton("pause-resume");
@@ -78,14 +78,21 @@ class Menu extends Sprite {
 		var btnSaveImage = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"SAVE IMAGE",42);
 		btnSaveImage.addEventListener("click",onSaveImage);
 		btnSaveImage.x = btnNew.x + btnNew.width + leftPadding;
-		btnSaveImage.y = btnNew.y;
+		//btnSaveImage.y = btnNew.y;
 
 		patternNumText = btnFactory.getQuickButtonWithBgColor(bgColor,"1");
-		patternNumText.x = btnRestart.x+btnRestart.width+leftPadding;
-		patternNumText.y = 2;
+		//patternNumText.x = btnRestart.x+btnRestart.width+leftPadding;
+		//patternNumText.y = 2;
 
-		btnPause.x = leftPadding + patternNumText.x+patternNumText.width + 24;
-		btnPause.y = patternNumText.y;
+		btnPause.x = btnRestart.x + btnRestart.width + leftPadding ;
+		//btnPause.y = btnRestart.y;
+
+		//patternNumText.x = btnPause.x + btnPause.width + leftPadding ;
+		patternNumText.x = btnPause.x + 100 ;
+		//patternNumText.y = btnPause.y;
+
+		btnNew.x = patternNumText.x +  50;
+		//btnNew.y = patternNumText.y;
 
 		this.addChild(btnRestart);
 		this.addChild(btnNew);
