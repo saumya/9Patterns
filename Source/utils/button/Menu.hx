@@ -63,12 +63,14 @@ class Menu extends Sprite {
 		btnRestart.x = leftPadding;
 		btnRestart.y = 2;
 	
-		var btnNew:QuickButtonWithBgColor = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"NEW",42);
+		//var btnNew:QuickButtonWithBgColor = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"NEW",42);
+		var btnNew:BitmapButton = btnFactory.getQuickBitmapButton("play");
 		btnNew.addEventListener("click",onNew);
 		btnNew.x = leftPadding;
 		btnNew.y = btnRestart.y + btnRestart.height + 4;
 
-		this.btnPause = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"PAUSE",42);
+		//this.btnPause = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"PAUSE",42);
+		var btnPause:BitmapButton = btnFactory.getQuickBitmapButton("pause-resume");
 		btnPause.addEventListener("click",onPause);
 		//btnPause.x = leftPadding + btnNew.x+btnNew.width;
 		//btnPause.y = btnNew.y;

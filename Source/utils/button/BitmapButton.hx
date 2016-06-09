@@ -18,7 +18,8 @@ class BitmapButton extends Sprite {
 		construct();
 	}
 	private function construct():Void{
-		bitmapBG = new Bitmap (Assets.getBitmapData ("images/"+btnName+".png"));
+		var s:String = "images/"+btnName+".png" ;
+		bitmapBG = new Bitmap (Assets.getBitmapData (s));
 		addChild(bitmapBG);
 	}
 
