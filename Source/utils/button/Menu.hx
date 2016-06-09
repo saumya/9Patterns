@@ -108,7 +108,7 @@ class Menu extends Sprite {
 		var g:Graphics = this.graphics;
 		g.clear();
 		g.beginFill(0xAAAAAA,1.0);
-		g.drawRect(0,0,gameWidth,120);
+		g.drawRect(0,0,gameWidth,60);
 		g.endFill();
 	}
 	//
