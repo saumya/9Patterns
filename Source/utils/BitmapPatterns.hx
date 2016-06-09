@@ -24,5 +24,7 @@ class BitmapPatterns {
 	}
 	public function render(container:Sprite):Void{
 		trace("render");
+		container.addChild(circle);
+		//container.addChild(square);
 	}
 }

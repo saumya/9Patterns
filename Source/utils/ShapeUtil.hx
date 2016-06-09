@@ -123,11 +123,11 @@ class ShapeUtil {
 	}
 	//  ########################### Bitmap #############################
 	public function getBitmapSquare():Bitmap{
-		var map:Bitmap = new Bitmap (Assets.getBitmapData ("images/background_tile.png"));
+		var map:Bitmap = new Bitmap (Assets.getBitmapData ("images/square.png"));
 		return map;
 	}
 	public function getBitmapCircle():Bitmap{
-		var map:Bitmap = new Bitmap (Assets.getBitmapData ("images/background_tile.png"));
+		var map:Bitmap = new Bitmap (Assets.getBitmapData ("images/circle.png"));
 		return map;
 	}
 }
