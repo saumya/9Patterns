@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	
-	<meta title="9 Patterns" package="com.saumya.ninePatterns" version="1.0.0" company="saumya" />
+	<meta title="9 Patterns" package="com.saumya.ninePatterns" version="1.0.1" company="saumya" />
 	
 	<app main="Main" path="Export" file="9Patterns" />
 
 	<icon path="Assets/images/icon.svg" />
-	<!-- <launchImage path="Assets/images/icon.svg" /> -->
+	<launchImage path="Assets/images/screenBg.jpg" />
 
 	<window width="800" height="700" if="desktop" />
 	<window width="0" height="0" if="html5" />
