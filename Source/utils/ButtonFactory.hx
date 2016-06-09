@@ -8,6 +8,7 @@ import openfl.geom.Point;
 
 import utils.button.QuickButton;
 import utils.button.QuickButtonWithBgColor;
+import utils.button.BitmapButton;
 
 class ButtonFactory {
 	
@@ -36,5 +37,11 @@ class ButtonFactory {
 		g.drawRect(0,0,width,h);
 		g.endFill();
 		return s;
+	}
+
+	// Bitmap buttons
+	public function getQuickBitmapButton(name:String="restart"):BitmapButton{
+		var bb:BitmapButton = new BitmapButton(name);
+		return bb;
 	}
 }

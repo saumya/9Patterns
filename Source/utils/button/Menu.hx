@@ -11,6 +11,8 @@ import utils.ButtonFactory;
 import utils.button.QuickButtonWithBgColor;
 import utils.button.EventNames;
 
+import utils.button.BitmapButton;
+
 class Menu extends Sprite {
 
 	private var btnFactory:ButtonFactory;
@@ -55,7 +57,8 @@ class Menu extends Sprite {
 		var leftPadding :UInt = 12;
 		var bgColor:UInt = 0xFFFFFF;
 
-		var btnRestart:QuickButtonWithBgColor = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"RESTART",42);
+		//var btnRestart:QuickButtonWithBgColor = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"RESTART",42);
+		var btnRestart:BitmapButton = btnFactory.getQuickBitmapButton("restart");
 		btnRestart.addEventListener("click",onRestart);
 		btnRestart.x = leftPadding;
 		btnRestart.y = 2;
