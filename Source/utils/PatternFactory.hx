@@ -5,20 +5,26 @@ import openfl.display.Sprite;
 import openfl.geom.Point;
 
 import utils.ShapeUtil;
+import utils.BitmapPatterns;
 
 class PatternFactory {
 	
 	private var patternContainer:Sprite;
 	private var bgSize:Point; // width, height . Saved as a point for easy reference
 	private var shapeUtil:ShapeUtil;
+	private var bitmapPatterns:BitmapPatterns;
 
 	private var patternIndex:UInt;
+	//
+	private var isBitmapPatterns:Bool;
 
-	public function new() {
+	public function new(?shouldRenderBitmap:Bool=false) {
+		isBitmapPatterns = shouldRenderBitmap;
 		construct();
 	}
 	private function construct():Void{
 		shapeUtil = new ShapeUtil();
+		bitmapPatterns = new BitmapPatterns();
 		patternIndex = 1;
 	}
 	// First mathod to be called, before anything else
@@ -60,54 +66,59 @@ class PatternFactory {
 
 	public function renderPattern():Void{
 		//
-		var n:Int = this.patternContainer.numChildren;
-		if(n>=1000){
-			this.patternContainer.removeChildren();
-		}
-		
-		
-		switch (this.patternIndex) {
-			case 1:
-				pattern_one();
-			case 2:
-				pattern_two();
-			case 3:
-				pattern_three();
-			case 4:
-				pattern_4();
-			case 5:
-				pattern_5();
-			case 6:
-				pattern_6();
-			case 7:
-				pattern_7();
-			case 8:
-				pattern_8();
-			case 9:
-				pattern_9();
-			case 10:
-				pattern_10();
-			case 11:
-				pattern_11();
-			case 12:
-				pattern_12();
-			case 13:
-				pattern_13();
-			case 14:
-				pattern_14();
-			case 15:
-				pattern_15();
-			case 16:
-				pattern_16();
-			case 17:
-				pattern_17();
-			case 18:
-				pattern_18();
-			default:
-				trace('case : default : TODO:Fix it for a better experience.');
-				//this.patternIndex = 1;
-				//pattern_one();
-		}
+		if (this.isBitmapPatterns) {
+			trace("todo: render");
+			bitmapPatterns.render(patternContainer);
+		} else {
+			//
+			var n:Int = this.patternContainer.numChildren;
+			if(n>=1000){
+				this.patternContainer.removeChildren();
+			}
+			//switch
+			switch (this.patternIndex) {
+				case 1:
+					pattern_one();
+				case 2:
+					pattern_two();
+				case 3:
+					pattern_three();
+				case 4:
+					pattern_4();
+				case 5:
+					pattern_5();
+				case 6:
+					pattern_6();
+				case 7:
+					pattern_7();
+				case 8:
+					pattern_8();
+				case 9:
+					pattern_9();
+				case 10:
+					pattern_10();
+				case 11:
+					pattern_11();
+				case 12:
+					pattern_12();
+				case 13:
+					pattern_13();
+				case 14:
+					pattern_14();
+				case 15:
+					pattern_15();
+				case 16:
+					pattern_16();
+				case 17:
+					pattern_17();
+				case 18:
+					pattern_18();
+				default:
+					trace('case : default : TODO:Fix it for a better experience.');
+					//this.patternIndex = 1;
+					//pattern_one();
+				}// End Switch
+		}// End Else
 		
 		//pattern_9();
 	}

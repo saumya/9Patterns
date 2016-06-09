@@ -65,7 +65,7 @@ class Game extends Sprite {
 	public function init():Void{
 		this.shapeUtil = new ShapeUtil();
 		this.buttonFactory = new ButtonFactory();
-		this.pFactory = new PatternFactory();
+		this.pFactory = new PatternFactory(true);
 
 		this.isPaused = false;
 		//
