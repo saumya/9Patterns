@@ -22,7 +22,7 @@ class BitmapPatterns {
 		circle = shapeUtil.getBitmapCircle();
 		square = shapeUtil.getBitmapSquare();
 	}
-	public function render(container:Sprite):Void{
+	public function render(container:Sprite,patternIndex:UInt):Void{
 		trace("render");
 		container.addChild(circle);
 		//container.addChild(square);

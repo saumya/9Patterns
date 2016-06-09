@@ -68,7 +68,7 @@ class PatternFactory {
 		//
 		if (this.isBitmapPatterns) {
 			trace("todo: render");
-			bitmapPatterns.render(patternContainer);
+			bitmapPatterns.render(patternContainer,patternIndex);
 		} else {
 			//
 			var n:Int = this.patternContainer.numChildren;
