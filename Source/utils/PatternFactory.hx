@@ -31,6 +31,8 @@ class PatternFactory {
 	public function setContainer(container:Sprite,backgroundSize:Point):Void{
 		this.patternContainer = container;
 		this.bgSize = backgroundSize;
+		//
+		bitmapPatterns.setContainer(this.patternContainer);
 	}
 
 	// internal
@@ -68,7 +70,7 @@ class PatternFactory {
 		//
 		if (this.isBitmapPatterns) {
 			trace("todo: render");
-			bitmapPatterns.render(patternContainer,patternIndex);
+			bitmapPatterns.render(patternIndex);
 		} else {
 			//
 			var n:Int = this.patternContainer.numChildren;

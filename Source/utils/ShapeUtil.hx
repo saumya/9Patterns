@@ -12,6 +12,8 @@ import openfl.geom.Point;
 import openfl.Assets;
 import openfl.Lib;
 
+import utils.display.BitmapSprite;
+
 class ShapeUtil {
 
 	private var maxColorValue:UInt;
@@ -129,5 +131,16 @@ class ShapeUtil {
 	public function getBitmapCircle():Bitmap{
 		var map:Bitmap = new Bitmap (Assets.getBitmapData ("images/circle.png"));
 		return map;
+	}
+	public function getBitmapSprite(?type:String="square",?isCentered:Bool=false):BitmapSprite{
+		var map:Bitmap;
+		var bitmapSprite:BitmapSprite;
+		if (type=="square") {
+			map = getBitmapSquare();
+		}else{
+			map = getBitmapCircle();
+		}
+		bitmapSprite = new BitmapSprite(map,isCentered);
+		return bitmapSprite;
 	}
 }
