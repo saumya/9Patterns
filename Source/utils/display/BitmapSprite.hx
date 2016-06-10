@@ -38,6 +38,6 @@ class BitmapSprite extends Sprite {
 		var a:Float = r+Math.sin(Math.random()*90) + this.x;
 		var b:Float = r*Math.cos(Math.random()*90) + this.y;
 
-		Actuate.tween(this,1.0,{ x:a, y:b }).ease (Quad.easeOut);
+		Actuate.tween(this,1.0,{ x:a, y:b, scaleX:0.2, scaleY:0.2 }).ease (Quad.easeOut);
 	}
 }
