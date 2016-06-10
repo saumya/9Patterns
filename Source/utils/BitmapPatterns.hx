@@ -33,7 +33,8 @@ class BitmapPatterns {
 		this.bgSize = size;
 	}
 	public function render(patternIndex:UInt):Void{
-		trace("render: FIx this ! The container height/width are not actual!");
+		trace("render: ");
+		/*
 		trace(this.container.numChildren);
 		//var c:Bitmap = shapeUtil.getBitmapSquare();
 		//var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.CIRCLE,true);
@@ -59,5 +60,30 @@ class BitmapPatterns {
 
 		//container.addChild(circle);
 		//container.addChild(square);
+		*/
+		pattern_2();
+	}
+	private function pattern_1():Void{
+		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
+		c.x = Math.random()*(bgSize.x);
+		c.y = Math.random()*(bgSize.y);
+		c.rotation = Math.random() * (90);
+		container.addChild(c);
+	}
+	private function pattern_2():Void{
+		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
+		counter++;
+		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
+		c.y = (bgSize.y/2)+ Math.cos(counter)*counter;
+		//c.rotation = Math.random() * (90);
+		container.addChild(c);
+	}
+	private function pattern_3():Void{
+		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
+		counter++;
+		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
+		c.y = (bgSize.y/2)+ Math.cos(counter)*counter;
+		c.rotation = counter;
+		container.addChild(c);
 	}
 }
