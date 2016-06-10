@@ -12,6 +12,7 @@ class BitmapPatterns {
 
 	var shapeUtil:ShapeUtil;
 	var container:Sprite;
+	var bgSize:Point;
 	//var circle:Bitmap;
 	//var square:Bitmap;
 	var counter:UInt;
@@ -26,21 +27,29 @@ class BitmapPatterns {
 		//circle = shapeUtil.getBitmapCircle();
 		//square = shapeUtil.getBitmapSquare();
 	}
-	public function setContainer(containerRef:Sprite):Void{
+	public function setContainer(containerRef:Sprite,size:Point):Void{
 		this.container = containerRef;
 		//this.container.addChild(circle);
+		this.bgSize = size;
 	}
 	public function render(patternIndex:UInt):Void{
-		trace("render");
+		trace("render: FIx this ! The container height/width are not actual!");
 		trace(this.container.numChildren);
 		//var c:Bitmap = shapeUtil.getBitmapSquare();
-		var c:BitmapSprite = shapeUtil.getBitmapSprite("square",true);
+		//var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.CIRCLE,true);
+		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
 
-		var n:UInt = container.numChildren;
-		var l:Float = c.width * (n);
+		//var n:UInt = container.numChildren;
+		//var l:Float = c.width * (n);
 
-		c.x = c.width *(container.numChildren);
-		c.rotation = n;
+		c.x = Math.random()*(bgSize.x);
+		c.y = Math.random()*(bgSize.y);
+		
+		//c.x = bgSize.x/2;
+		//c.y = bgSize.y/2;
+		
+		c.rotation = Math.random() * (90);
+		//c.scaleX = c.scaleY = Math.random()*10;
 
 		container.addChild(c);
 		//counter ++;

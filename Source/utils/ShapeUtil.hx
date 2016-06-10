@@ -16,6 +16,9 @@ import utils.display.BitmapSprite;
 
 class ShapeUtil {
 
+	public static var CIRCLE:String = 'circle';
+	public static var SQUARE:String = 'square';
+
 	private var maxColorValue:UInt;
 	private var bgSize:Point;
 
@@ -132,13 +135,16 @@ class ShapeUtil {
 		var map:Bitmap = new Bitmap (Assets.getBitmapData ("images/circle.png"));
 		return map;
 	}
-	public function getBitmapSprite(?type:String="square",?isCentered:Bool=false):BitmapSprite{
+	public function getBitmapSprite(?type:String='square',?isCentered:Bool=false):BitmapSprite{
 		var map:Bitmap;
 		var bitmapSprite:BitmapSprite;
-		if (type=="square") {
+		if (type==ShapeUtil.SQUARE) {
 			map = getBitmapSquare();
-		}else{
+		}else if(type==ShapeUtil.CIRCLE){
 			map = getBitmapCircle();
+		}else{
+			// default
+			map = getBitmapSquare();
 		}
 		bitmapSprite = new BitmapSprite(map,isCentered);
 		return bitmapSprite;

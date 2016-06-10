@@ -11,6 +11,9 @@ class BitmapSprite extends Sprite {
 		super();
 		map = bitmap;
 		isAtCenter = isCenterPositioned;
+		//
+		map.smoothing = true;
+		//
 		construct();
 	}
 	private function construct():Void{

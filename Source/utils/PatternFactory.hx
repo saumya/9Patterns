@@ -32,7 +32,7 @@ class PatternFactory {
 		this.patternContainer = container;
 		this.bgSize = backgroundSize;
 		//
-		bitmapPatterns.setContainer(this.patternContainer);
+		bitmapPatterns.setContainer(this.patternContainer,this.bgSize);
 	}
 
 	// internal
