@@ -61,6 +61,7 @@ class PatternFactory {
 		if(patternIndex>=19){
 			this.patternIndex = 1;
 		}
+		bitmapPatterns.nextPattern();
 	}
 	public function getPatternNum():UInt{
 		return patternIndex;

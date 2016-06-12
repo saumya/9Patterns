@@ -32,6 +32,9 @@ class BitmapPatterns {
 		//this.container.addChild(circle);
 		this.bgSize = size;
 	}
+	public function nextPattern():Void{
+		counter = 0;
+	}
 	public function render(patternIndex:UInt):Void{
 		trace("render: ");
 		/*
@@ -63,6 +66,9 @@ class BitmapPatterns {
 		*/
 		//pattern_8();
 		//
+		if(patternIndex > 9){
+			patternIndex = patternIndex - 9;
+		}
 		var n:Int = this.container.numChildren;
 		if(n>=1000){
 			this.container.removeChildren();
@@ -85,6 +91,8 @@ class BitmapPatterns {
 				pattern_7();
 			case 8:
 				pattern_8();
+			case 9:
+				pattern_9();
 			default:
 				trace('case : default : TODO:Fix it for a better experience.');
 				//this.patternIndex = 1;
@@ -162,6 +170,19 @@ class BitmapPatterns {
 		container.addChild(c);
 	}
 	private function pattern_8():Void{
+		// TODO:
+		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
+		counter++;
+		c.x = (bgSize.x/2)+ Math.sin(counter)*(counter/5);
+		c.y = (bgSize.y/2)+ Math.cos(counter)*(counter/5);
+		c.rotation = (9)*(counter);
+		var b = (1 - (1/1000)*(counter));
+		c.scaleX = c.scaleY = b;
+
+		container.addChild(c);
+	}
+	private function pattern_9():Void{
+		// TODO: 
 		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
 		counter++;
 		c.x = (bgSize.x/2)+ Math.sin(counter)*(counter/5);
