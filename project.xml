@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	
-	<meta title="9 Patterns" package="com.saumya.ninePatterns" version="1.0.1" company="saumya" />
+	<meta title="9 Patterns" package="com.saumya.ninePatterns" version="1.0.2" company="saumya" />
 	
 	<app main="Main" path="Export" file="9Patterns" />
 
@@ -24,7 +24,7 @@
 	<!-- Singing --
 	<android target-sdk-version="23" minimum-sdk-version="7" />
 	<android install-location="preferExternal" />
-	<!-- <certificate if="android" path="/Users/saumyaray/devHome/webApps/haxe/openfl/0_myApps/androidCertificates/r-key.keystore" /> --
+	<!-- <certificate if="android" path="/Users/saumyaray/devHome/webApps/haxe/openfl/0_myApps/androidCertificates/r-key.keystore" /> 
 	<certificate if="android" alias="9Patterns" path="/Users/saumya/Documents/2_dev/7_stores/1_GooglePlayStore/ninePatterns.keystore" /> -->
 
 
