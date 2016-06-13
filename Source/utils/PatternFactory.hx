@@ -34,6 +34,10 @@ class PatternFactory {
 		//
 		bitmapPatterns.setContainer(this.patternContainer,this.bgSize);
 	}
+	public function swapRenderType():Void{
+		isBitmapPatterns = !isBitmapPatterns;
+		this.patternContainer.removeChildren();
+	}
 	public function restart():Void{
 		bitmapPatterns.restart();
 	}

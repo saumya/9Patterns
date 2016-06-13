@@ -84,6 +84,9 @@ class Menu extends Sprite {
 		//patternNumText.x = btnRestart.x+btnRestart.width+leftPadding;
 		//patternNumText.y = 2;
 
+		var btnChangeType = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"Change Type",42);
+		btnChangeType.addEventListener("click",onChangeRenderType);
+
 		btnPause.x = btnRestart.x + btnRestart.width + leftPadding ;
 		//btnPause.y = btnRestart.y;
 
@@ -93,11 +96,14 @@ class Menu extends Sprite {
 
 		btnNew.x = patternNumText.x +  50;
 		//btnNew.y = patternNumText.y;
+		btnChangeType.x = btnNew.x + btnNew.width + 100;
 
 		this.addChild(btnRestart);
-		this.addChild(btnNew);
 		this.addChild(btnPause);
 		this.addChild(patternNumText);
+		this.addChild(btnNew);
+		this.addChild(btnChangeType);
+
 		
 		// TODO: Fix this. Until then do not display it
 		// Saving image from Sprite on Phone
@@ -126,6 +132,10 @@ class Menu extends Sprite {
 	}
 	private function onSaveImage(e:MouseEvent):Void{
 		var newEvent:Event = new Event(EventNames.SAVE_IMAGE);
+		dispatchEvent(newEvent);
+	}
+	private function onChangeRenderType(e:MouseEvent):Void{
+		var newEvent:Event = new Event(EventNames.CHANGE_RENDER_TYPE);
 		dispatchEvent(newEvent);
 	}
 }

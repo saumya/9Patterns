@@ -65,7 +65,7 @@ class Game extends Sprite {
 	public function init():Void{
 		this.shapeUtil = new ShapeUtil();
 		this.buttonFactory = new ButtonFactory();
-		this.pFactory = new PatternFactory(true);
+		this.pFactory = new PatternFactory();
 
 		this.isPaused = false;
 		//
@@ -94,6 +94,7 @@ class Game extends Sprite {
 		this.menu.addEventListener(EventNames.GAME_NEW_PATTERN,onGameNewPattern);
 		this.menu.addEventListener(EventNames.GAME_PAUSE,onGamePause);
 		this.menu.addEventListener(EventNames.SAVE_IMAGE,onSaveImage);
+		this.menu.addEventListener(EventNames.CHANGE_RENDER_TYPE,onChangeRenderType);
 		this.addChild(menu);
 
 		/*
@@ -194,7 +195,6 @@ class Game extends Sprite {
 
 		cleanAndRenderAgain();
 	}
-
 	//
 	private function cleanAndRenderAgain():Void{
 		this.shapeContainer.removeChildren();
@@ -231,6 +231,9 @@ class Game extends Sprite {
 			this.removeEventListener(Event.ENTER_FRAME,render);
 			this.isPaused = true;
 		}
+	}
+	private function onChangeRenderType(e:Event):Void{
+		pFactory.swapRenderType();
 	}
 	private function onSaveImage(e:Event):Void{
 		trace('onSaveImage');

@@ -8,4 +8,5 @@ class EventNames {
 	public static var GAME_END:String = "end";
 
 	public static var SAVE_IMAGE:String = "saveImage";
+	public static var CHANGE_RENDER_TYPE:String = "changeRenderType";
 }
