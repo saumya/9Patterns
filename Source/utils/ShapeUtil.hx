@@ -128,7 +128,12 @@ class ShapeUtil {
 	}
 	//  ########################### Bitmap #############################
 	public function getBitmapSquare():Bitmap{
-		var map:Bitmap = new Bitmap (Assets.getBitmapData ("images/square.png"));
+		//var map:Bitmap;
+		var a:Array<String> = ["square_1_v","square_2_i","square_3_b","square_4_g","square_5_y","square_6_o","square_7_r"];
+		var n:UInt = a.length - 1;
+		var i:UInt = Math.round(Math.random()*n);
+
+		var map:Bitmap = new Bitmap (Assets.getBitmapData ("images/"+a[i]+".png"));
 		return map;
 	}
 	public function getBitmapCircle():Bitmap{
