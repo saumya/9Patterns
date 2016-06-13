@@ -33,6 +33,9 @@ class BitmapPatterns {
 		this.bgSize = size;
 	}
 	public function nextPattern():Void{
+		resetCounter();
+	}
+	private function resetCounter():Void{
 		counter = 0;
 	}
 	public function render(patternIndex:UInt):Void{
@@ -72,6 +75,7 @@ class BitmapPatterns {
 		var n:Int = this.container.numChildren;
 		if(n>=1000){
 			this.container.removeChildren();
+			resetCounter();
 		}
 		//switch
 		switch (patternIndex) {
@@ -175,7 +179,7 @@ class BitmapPatterns {
 		counter++;
 		c.x = (bgSize.x/2)+ Math.sin(counter)*(counter/5);
 		c.y = (bgSize.y/2)+ Math.cos(counter)*(counter/5);
-		c.rotation = (9)*(counter);
+		//c.rotation = (9)*(counter);
 		var b = (1 - (1/1000)*(counter));
 		c.scaleX = c.scaleY = b;
 
