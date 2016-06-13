@@ -35,8 +35,8 @@ class BitmapSprite extends Sprite {
 	private function onClick(e:MouseEvent):Void {
 
 		var r:Float = Math.random() * 100;
-		var a:Float = r+Math.sin(Math.random()*90) + this.x;
-		var b:Float = r*Math.cos(Math.random()*90) + this.y;
+		var a:Float = r+Math.sin(Math.random()*360) + this.x;
+		var b:Float = r*Math.cos(Math.random()*360) + this.y;
 
 		Actuate.tween(this,1.0,{ x:a, y:b, scaleX:0.2, scaleY:0.2 }).ease (Quad.easeOut);
 	}

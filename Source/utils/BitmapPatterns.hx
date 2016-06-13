@@ -114,6 +114,8 @@ class BitmapPatterns {
 		c.x = Math.random()*(bgSize.x);
 		c.y = Math.random()*(bgSize.y);
 		c.rotation = Math.random() * (90);
+
+		c.scaleX = c.scaleY = 0.4;
 		
 		container.addChild(c);
 
@@ -127,6 +129,8 @@ class BitmapPatterns {
 		c.y = (bgSize.y/2)+ Math.cos(counter)*counter;
 		//c.rotation = Math.random() * (90);
 
+		c.scaleX = c.scaleY = 0.4;
+
 		container.addChild(c);
 	}
 	private function pattern_3():Void{
@@ -135,6 +139,8 @@ class BitmapPatterns {
 		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
 		c.y = (bgSize.y/2)+ Math.cos(counter)*counter;
 		c.rotation = counter;
+
+		c.scaleX = c.scaleY = 0.4;
 
 		container.addChild(c);
 	}
@@ -145,6 +151,8 @@ class BitmapPatterns {
 		c.y = (bgSize.y/2)+ Math.cos(counter)*counter;
 		c.rotation = (22.5)*(counter);
 
+		c.scaleX = c.scaleY = 0.4;
+
 		container.addChild(c);
 	}
 	private function pattern_5():Void{
@@ -153,6 +161,8 @@ class BitmapPatterns {
 		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
 		c.y = (bgSize.y/2)+ Math.cos(counter)*counter;
 		c.rotation = (2)*(counter);
+
+		c.scaleX = c.scaleY = 0.4;
 
 		container.addChild(c);
 	}
