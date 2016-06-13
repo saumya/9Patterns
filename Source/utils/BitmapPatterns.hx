@@ -157,24 +157,12 @@ class BitmapPatterns {
 		c.x = (bgSize.x/2)+ Math.sin(counter)*(counter/5);
 		c.y = (bgSize.y/2)+ Math.cos(counter)*(counter/5);
 		c.rotation = (1)*(counter);
-
-		//c.scaleX = c.scaleY = Math.sin(counter);
-
-		// counter from 0 to 1000
-		// options from 0 to 1
-		// fix this
-		/*
-		var a:Float = 0(0) / 1(1000);
-		var min = 0; var max = 1000;
-		var min1 = 0; var max1 = 1;
-		*/
 		var b = (1 - (1/1000)*(counter));
 		c.scaleX = c.scaleY = b;
 
 		container.addChild(c);
 	}
 	private function pattern_8():Void{
-		// TODO:
 		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
 		counter++;
 		c.x = (bgSize.x/2)+ Math.sin(counter)*(counter/5);
