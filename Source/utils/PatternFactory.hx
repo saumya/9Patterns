@@ -34,6 +34,9 @@ class PatternFactory {
 		//
 		bitmapPatterns.setContainer(this.patternContainer,this.bgSize);
 	}
+	public function restart():Void{
+		bitmapPatterns.restart();
+	}
 
 	// internal
 	private function clearContainer():Void{
@@ -70,7 +73,6 @@ class PatternFactory {
 	public function renderPattern():Void{
 		//
 		if (this.isBitmapPatterns) {
-			trace("todo: render");
 			bitmapPatterns.render(patternIndex);
 		} else {
 			//

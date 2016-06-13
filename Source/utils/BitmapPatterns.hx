@@ -35,11 +35,13 @@ class BitmapPatterns {
 	public function nextPattern():Void{
 		resetCounter();
 	}
+	public function restart():Void{
+		resetCounter();
+	}
 	private function resetCounter():Void{
 		counter = 0;
 	}
 	public function render(patternIndex:UInt):Void{
-		trace("render: ");
 		/*
 		trace(this.container.numChildren);
 		//var c:Bitmap = shapeUtil.getBitmapSquare();
@@ -108,6 +110,7 @@ class BitmapPatterns {
 		c.x = Math.random()*(bgSize.x);
 		c.y = Math.random()*(bgSize.y);
 		c.rotation = Math.random() * (90);
+
 		container.addChild(c);
 	}
 	private function pattern_2():Void{
@@ -116,6 +119,7 @@ class BitmapPatterns {
 		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
 		c.y = (bgSize.y/2)+ Math.cos(counter)*counter;
 		//c.rotation = Math.random() * (90);
+
 		container.addChild(c);
 	}
 	private function pattern_3():Void{
@@ -124,6 +128,7 @@ class BitmapPatterns {
 		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
 		c.y = (bgSize.y/2)+ Math.cos(counter)*counter;
 		c.rotation = counter;
+
 		container.addChild(c);
 	}
 	private function pattern_4():Void{
@@ -132,6 +137,7 @@ class BitmapPatterns {
 		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
 		c.y = (bgSize.y/2)+ Math.cos(counter)*counter;
 		c.rotation = (22.5)*(counter);
+
 		container.addChild(c);
 	}
 	private function pattern_5():Void{
@@ -140,6 +146,7 @@ class BitmapPatterns {
 		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
 		c.y = (bgSize.y/2)+ Math.cos(counter)*counter;
 		c.rotation = (2)*(counter);
+
 		container.addChild(c);
 	}
 	private function pattern_6():Void{

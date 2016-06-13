@@ -213,6 +213,7 @@ class Game extends Sprite {
 	}
 	*/
 	private function onGameRestart(e:Event):Void{
+		this.pFactory.restart();
 		cleanAndRenderAgain();
 	}
 	private function onGameNewPattern(e:Event):Void{
