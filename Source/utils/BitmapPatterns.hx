@@ -8,6 +8,10 @@ import openfl.geom.Point;
 import utils.ShapeUtil;
 import utils.display.BitmapSprite;
 
+import motion.Actuate;
+import motion.easing.Quad;
+import motion.easing.Bounce;
+
 class BitmapPatterns {
 
 	var shapeUtil:ShapeUtil;
@@ -110,8 +114,11 @@ class BitmapPatterns {
 		c.x = Math.random()*(bgSize.x);
 		c.y = Math.random()*(bgSize.y);
 		c.rotation = Math.random() * (90);
-
+		
 		container.addChild(c);
+
+		//var r:Float = Math.random() * (90);
+		//Actuate.tween(this,1.0,{ rotation:r }).ease (Quad.easeOut);
 	}
 	private function pattern_2():Void{
 		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
