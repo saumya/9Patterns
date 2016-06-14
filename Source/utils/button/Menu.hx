@@ -3,6 +3,7 @@ package utils.button;
 
 import openfl.display.Graphics;
 import openfl.display.Sprite;
+import openfl.display.Bitmap;
 
 import openfl.events.MouseEvent;
 import openfl.events.Event;
@@ -13,6 +14,9 @@ import utils.button.EventNames;
 
 import utils.button.BitmapButton;
 import utils.button.ToggleButton;
+import utils.button.ToggleBitmapButton;
+
+import openfl.Assets;
 
 class Menu extends Sprite {
 
@@ -33,7 +37,7 @@ class Menu extends Sprite {
 	}
 
 	public function setPauseButtonLabel(label:String):Void{
-		trace("TODO");
+		trace("TODO : setPauseButtonLabel");
 	}
 	public function setMenuWidth(newWidth:Float):Void{
 		gameWidth = newWidth;
@@ -73,9 +77,23 @@ class Menu extends Sprite {
 		//btnNew.x = leftPadding;
 		//btnNew.y = btnRestart.y + btnRestart.height + 4;
 
+		var s1:String = "images/pause.png" ;
+		var map1:Bitmap = new Bitmap (Assets.getBitmapData (s1));
+		var s2:String = "images/play.png" ;
+		var map2:Bitmap = new Bitmap (Assets.getBitmapData (s2));
+		var btnPause:ToggleBitmapButton = new ToggleBitmapButton(map1,map2);
+		addChild(btnPause);
+		//btnPause1.x = 400;
+		btnPause.addEventListener("click",onPause);
+
+
 		//this.btnPause = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"PAUSE",42);
+		
+		/*
 		var btnPause:BitmapButton = btnFactory.getQuickBitmapButton("pause-resume");
 		btnPause.addEventListener("click",onPause);
+		*/
+
 		//btnPause.x = leftPadding + btnNew.x+btnNew.width;
 		//btnPause.y = btnNew.y;
 

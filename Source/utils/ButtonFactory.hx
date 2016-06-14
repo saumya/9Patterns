@@ -9,6 +9,8 @@ import openfl.geom.Point;
 import utils.button.QuickButton;
 import utils.button.QuickButtonWithBgColor;
 import utils.button.BitmapButton;
+import utils.button.ToggleButton;
+import utils.button.ToggleBitmapButton;
 
 class ButtonFactory {
 	
