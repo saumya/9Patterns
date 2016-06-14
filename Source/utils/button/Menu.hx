@@ -83,7 +83,6 @@ class Menu extends Sprite {
 		var map2:Bitmap = new Bitmap (Assets.getBitmapData (s2));
 		var btnPause:ToggleBitmapButton = new ToggleBitmapButton(map1,map2);
 		addChild(btnPause);
-		//btnPause1.x = 400;
 		btnPause.addEventListener("click",onPause);
 
 
@@ -116,15 +115,10 @@ class Menu extends Sprite {
 		tButton.addEventListener("click",onChangeRenderType);
 
 		btnPause.x = btnRestart.x + btnRestart.width + leftPadding ;
-		//btnPause.y = btnRestart.y;
-
-		//patternNumText.x = btnPause.x + btnPause.width + leftPadding ;
-		patternNumText.x = btnPause.x + 100 ;
-		//patternNumText.y = btnPause.y;
-
-		btnNew.x = patternNumText.x +  50;
-		//btnNew.y = patternNumText.y;
-		//btnChangeType.x = btnNew.x + btnNew.width + 100;
+		btnNew.x = btnPause.x +  50;
+		patternNumText.x = btnNew.x + 50 ;
+		patternNumText.y = 4 ;
+		
 
 		this.addChild(btnRestart);
 		this.addChild(btnPause);

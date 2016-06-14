@@ -81,7 +81,7 @@ class ToggleButton extends Sprite {
 			newX = 4;
 			newColor = 0xCCCCCC;
 		}
-		Actuate.tween(this.btn,0.5,{ x:newX }).ease (Quad.easeOut);
+		Actuate.tween(this.btn,0.6,{ x:newX }).ease (Quad.easeOut);
 		//finally 
 		dispatchEvent(new Event(ToggleButton.TOGGLE_EVENT));
 	}
