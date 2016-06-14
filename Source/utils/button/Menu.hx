@@ -12,6 +12,7 @@ import utils.button.QuickButtonWithBgColor;
 import utils.button.EventNames;
 
 import utils.button.BitmapButton;
+import utils.button.ToggleButton;
 
 class Menu extends Sprite {
 
@@ -86,6 +87,10 @@ class Menu extends Sprite {
 
 		var btnChangeType = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"swap",42);
 		btnChangeType.addEventListener("click",onChangeRenderType);
+
+		var tButton:ToggleButton = new ToggleButton();
+		tButton.x = 600;
+		addChild(tButton);
 
 		btnPause.x = btnRestart.x + btnRestart.width + leftPadding ;
 		//btnPause.y = btnRestart.y;
