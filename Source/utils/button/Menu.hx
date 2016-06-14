@@ -18,6 +18,7 @@ class Menu extends Sprite {
 
 	private var btnFactory:ButtonFactory;
 	private var btnPause:QuickButtonWithBgColor;
+	private var tButton:ToggleButton;
 	private var gameWidth:Float;
 
 	private var patternNumText:QuickButtonWithBgColor;
@@ -37,6 +38,8 @@ class Menu extends Sprite {
 	public function setMenuWidth(newWidth:Float):Void{
 		gameWidth = newWidth;
 		makeBg();
+		//
+		tButton.x = newWidth - 120;
 	}
 	public function setPatternNumText(num:UInt):Void{
 		//trace(num);
@@ -85,12 +88,14 @@ class Menu extends Sprite {
 		//patternNumText.x = btnRestart.x+btnRestart.width+leftPadding;
 		//patternNumText.y = 2;
 
-		var btnChangeType = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"swap",42);
-		btnChangeType.addEventListener("click",onChangeRenderType);
+		//var btnChangeType = this.btnFactory.getQuickButtonWithBgColor(0xFFFFFF,"swap",42);
+		//btnChangeType.addEventListener("click",onChangeRenderType);
 
-		var tButton:ToggleButton = new ToggleButton();
-		tButton.x = 600;
+		tButton = new ToggleButton();
+		tButton.x = 500;
+		tButton.y = 4;
 		addChild(tButton);
+		tButton.addEventListener("click",onChangeRenderType);
 
 		btnPause.x = btnRestart.x + btnRestart.width + leftPadding ;
 		//btnPause.y = btnRestart.y;
@@ -101,13 +106,13 @@ class Menu extends Sprite {
 
 		btnNew.x = patternNumText.x +  50;
 		//btnNew.y = patternNumText.y;
-		btnChangeType.x = btnNew.x + btnNew.width + 100;
+		//btnChangeType.x = btnNew.x + btnNew.width + 100;
 
 		this.addChild(btnRestart);
 		this.addChild(btnPause);
 		this.addChild(patternNumText);
 		this.addChild(btnNew);
-		this.addChild(btnChangeType);
+		//this.addChild(btnChangeType);
 
 		
 		// TODO: Fix this. Until then do not display it

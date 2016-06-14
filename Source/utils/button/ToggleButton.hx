@@ -12,6 +12,8 @@ import motion.easing.Elastic;
 
 
 class ToggleButton extends Sprite {
+
+	public static var TOGGLE_EVENT:String = "ToggleEvent";
 	
 	private var btn:Sprite;
 	private var isOn:Bool;
@@ -67,6 +69,7 @@ class ToggleButton extends Sprite {
 	}
 
 	private function onUserClick(e:MouseEvent):Void{
+		// Change value
 		isOn = !isOn;
 		// animate
 		var newX:Float = 0.0; // (100-4)-(50)
@@ -79,8 +82,8 @@ class ToggleButton extends Sprite {
 			newColor = 0xCCCCCC;
 		}
 		Actuate.tween(this.btn,0.5,{ x:newX }).ease (Quad.easeOut);
-		//finally change value
-		//isOn = !isOn;
+		//finally 
+		dispatchEvent(new Event(ToggleButton.TOGGLE_EVENT));
 	}
 
 }
