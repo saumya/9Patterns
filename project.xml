@@ -22,10 +22,14 @@
 	<assets path="Assets/images" rename="images" include="*" exclude="icon.svg" />
 
 	<!-- Singing --
+	
 	<android target-sdk-version="23" minimum-sdk-version="7" />
 	<android install-location="preferExternal" />
-	<!-- <certificate if="android" path="/Users/saumyaray/devHome/webApps/haxe/openfl/0_myApps/androidCertificates/r-key.keystore" /> 
-	<certificate if="android" alias="9Patterns" path="/Users/saumya/Documents/2_dev/7_stores/1_GooglePlayStore/ninePatterns.keystore" /> -->
+	<certificate if="android" alias="9Patterns" path="/Users/saumya/Documents/2_dev/7_stores/1_GooglePlayStore/ninePatterns.keystore" /> 
+	
+	-->
+
+	<!-- <certificate if="android" path="/Users/saumyaray/devHome/webApps/haxe/openfl/0_myApps/androidCertificates/r-key.keystore" /> -->
 
 
 
