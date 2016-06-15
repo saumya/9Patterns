@@ -17,8 +17,6 @@ class BitmapPatterns {
 	var shapeUtil:ShapeUtil;
 	var container:Sprite;
 	var bgSize:Point;
-	//var circle:Bitmap;
-	//var square:Bitmap;
 	var counter:UInt;
 
 	public function new(shapeUtilRef:ShapeUtil) {
@@ -28,12 +26,9 @@ class BitmapPatterns {
 	}
 	private function construct():Void{
 		trace("TODO: construct");
-		//circle = shapeUtil.getBitmapCircle();
-		//square = shapeUtil.getBitmapSquare();
 	}
 	public function setContainer(containerRef:Sprite,size:Point):Void{
 		this.container = containerRef;
-		//this.container.addChild(circle);
 		this.bgSize = size;
 	}
 	public function nextPattern():Void{
@@ -46,34 +41,6 @@ class BitmapPatterns {
 		counter = 0;
 	}
 	public function render(patternIndex:UInt):Void{
-		/*
-		trace(this.container.numChildren);
-		//var c:Bitmap = shapeUtil.getBitmapSquare();
-		//var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.CIRCLE,true);
-		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
-
-		//var n:UInt = container.numChildren;
-		//var l:Float = c.width * (n);
-
-		c.x = Math.random()*(bgSize.x);
-		c.y = Math.random()*(bgSize.y);
-		
-		//c.x = bgSize.x/2;
-		//c.y = bgSize.y/2;
-		
-		c.rotation = Math.random() * (90);
-		//c.scaleX = c.scaleY = Math.random()*10;
-
-		container.addChild(c);
-		//counter ++;
-		//circle.x = 200+Math.sin(counter);
-		//circle.y = 200+Math.cos(counter);
-		
-
-		//container.addChild(circle);
-		//container.addChild(square);
-		*/
-		//pattern_8();
 		//
 		if(patternIndex > 9){
 			patternIndex = patternIndex - 9;
@@ -105,8 +72,8 @@ class BitmapPatterns {
 				pattern_9();
 			default:
 				trace('case : default : TODO:Fix it for a better experience.');
-				//this.patternIndex = 1;
-				//pattern_one();
+				this.patternIndex = 1;
+				pattern_one();
 			}// End Switch
 	}
 	private function pattern_1():Void{
@@ -114,12 +81,8 @@ class BitmapPatterns {
 		c.x = Math.random()*(bgSize.x);
 		c.y = Math.random()*(bgSize.y);
 		c.rotation = Math.random() * (90);
-
 		c.scaleX = c.scaleY = 0.4;
-		
 		container.addChild(c);
-
-		//var r:Float = Math.random() * (90);
 		//Actuate.tween(this,1.0,{ rotation:r }).ease (Quad.easeOut);
 	}
 	private function pattern_2():Void{
@@ -127,10 +90,7 @@ class BitmapPatterns {
 		counter++;
 		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
 		c.y = (bgSize.y/2)+ Math.cos(counter)*counter;
-		//c.rotation = Math.random() * (90);
-
 		c.scaleX = c.scaleY = 0.4;
-
 		container.addChild(c);
 	}
 	private function pattern_3():Void{
@@ -139,9 +99,7 @@ class BitmapPatterns {
 		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
 		c.y = (bgSize.y/2)+ Math.cos(counter)*counter;
 		c.rotation = counter;
-
 		c.scaleX = c.scaleY = 0.4;
-
 		container.addChild(c);
 	}
 	private function pattern_4():Void{
@@ -150,9 +108,7 @@ class BitmapPatterns {
 		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
 		c.y = (bgSize.y/2)+ Math.cos(counter)*counter;
 		c.rotation = (22.5)*(counter);
-
 		c.scaleX = c.scaleY = 0.4;
-
 		container.addChild(c);
 	}
 	private function pattern_5():Void{
@@ -161,9 +117,7 @@ class BitmapPatterns {
 		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
 		c.y = (bgSize.y/2)+ Math.cos(counter)*counter;
 		c.rotation = (2)*(counter);
-
 		c.scaleX = c.scaleY = 0.4;
-
 		container.addChild(c);
 	}
 	private function pattern_6():Void{
@@ -183,7 +137,6 @@ class BitmapPatterns {
 		c.rotation = (1)*(counter);
 		var b = (1 - (1/1000)*(counter));
 		c.scaleX = c.scaleY = b;
-
 		container.addChild(c);
 	}
 	private function pattern_8():Void{
@@ -191,14 +144,11 @@ class BitmapPatterns {
 		counter++;
 		c.x = (bgSize.x/2)+ Math.sin(counter)*(counter/5);
 		c.y = (bgSize.y/2)+ Math.cos(counter)*(counter/5);
-		//c.rotation = (9)*(counter);
 		var b = (1 - (1/1000)*(counter));
 		c.scaleX = c.scaleY = b;
-
 		container.addChild(c);
 	}
 	private function pattern_9():Void{
-		// TODO: 
 		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
 		counter++;
 		c.x = (bgSize.x/2)+ Math.sin(counter)*(counter/5);
@@ -206,7 +156,6 @@ class BitmapPatterns {
 		c.rotation = (9)*(counter);
 		var b = (1 - (1/1000)*(counter));
 		c.scaleX = c.scaleY = b;
-
 		container.addChild(c);
 	}
 }
