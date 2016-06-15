@@ -72,18 +72,6 @@ class Game extends Sprite {
 		construct();
 	}
 	public function construct():Void{
-		// The values are set in Project.xml
-		//var bgWidth:UInt = 700;
-		//var bgHeight:UInt = 1100;
-
-		//var bgWidth:UInt = this.stage.stageWidth;
-		//var bgHeight:UInt = this.stage.stageHeight;
-		//
-		//this.background = this.shapeUtil.getBackground(bgWidth,bgHeight,0xAAAAAA);
-		//this.addChild(this.background);
-
-		//this.background.y = 10;
-
 		this.shapeContainer = new Sprite();
 		this.addChild(this.shapeContainer);
 
@@ -97,23 +85,6 @@ class Game extends Sprite {
 		this.menu.addEventListener(EventNames.CHANGE_RENDER_TYPE,onChangeRenderType);
 		this.addChild(menu);
 
-		/*
-		//var b1:QuickButton = this.buttonFactory.getQuickButton();
-		var b1:QuickButtonWithBgColor = this.buttonFactory.getQuickButtonWithBgColor(0xFFFFFF,"RESTART",18);
-		//var b2:QuickButton = this.buttonFactory.getQuickButton("Boom",60);
-		//var b3:QuickButtonWithBgColor = this.buttonFactory.getQuickButtonWithBgColor(0xFFFFFF,"One");
-		
-		//b2.y = b1.height + 10;
-		//b3.y = b2.y+b2.height + 10;
-
-		
-		b1.addEventListener("click",onButton1Click);
-
-		this.addChild(b1);
-		//this.addChild(b2);
-		//this.addChild(b3);
-		*/
-
 		// set the container
 		var bgSize:Point = new Point(nWidth,nHeight - menu.height);
 		this.pFactory.setContainer(shapeContainer,bgSize);
@@ -122,28 +93,7 @@ class Game extends Sprite {
 	}
 	
 	public function render(e:Event):Void{
-		/*
-		//this.shapeContainer.removeChildren();
-		var n:Int = this.shapeContainer.numChildren;
-		if(n>=1000){
-			this.shapeContainer.removeChildren();
-		}
-
-		//var s = shapeUtil.getCircle(Math.round(Math.random()*50));
-		//var s = shapeUtil.getSquare(Math.round(Math.random()*50));
-		//var n:UInt = Math.round(Math.random()*50);
-		//var s = shapeUtil.getRandomShape(n);
-
-		var s = shapeUtil.getRandomShapeSizeColor(50);
-
-		s.x = this.background.width*Math.random();
-		s.y = this.background.height*Math.random();
-
-		this.shapeContainer.addChild(s);
-		*/
-
 		this.pFactory.renderPattern();
-		
 	}
 
 	public function resize(newWidth:Int, newHeight:Int):Void {
@@ -167,15 +117,7 @@ class Game extends Sprite {
 			} else {
 				currentScale = maxScaleY;
 			}
-
-			
-			/*
-			scaleX = currentScale;
-			scaleY = currentScale;
-			*/
 		}
-		
-		//x = newWidth / 2 - (currentWidth * currentScale) / 2;
 		var i:Float = (newWidth / 2 - (currentWidth ) / 2);
 		x = (1)*(i);
 
@@ -220,10 +162,7 @@ class Game extends Sprite {
 		changePattern();
 	}
 	private function onGamePause(e:Event):Void{
-		
-		//this.addEventListener(Event.ENTER_FRAME,render);
 		this.menu.setPauseButtonLabel("PLAY");
-		
 		if(this.isPaused){
 			this.addEventListener(Event.ENTER_FRAME,render);
 			this.isPaused = false;
