@@ -2,6 +2,7 @@
 package utils;
 
 import openfl.display.Sprite;
+import openfl.display.Graphics;
 import openfl.geom.Point;
 
 import utils.ShapeUtil;
@@ -18,6 +19,8 @@ class PatternFactory {
 	//
 	private var isBitmapPatterns:Bool;
 
+	private var counterX:UInt;
+
 	public function new(?shouldRenderBitmap:Bool=false) {
 		isBitmapPatterns = shouldRenderBitmap;
 		construct();
@@ -26,6 +29,7 @@ class PatternFactory {
 		shapeUtil = new ShapeUtil();
 		bitmapPatterns = new BitmapPatterns(shapeUtil);
 		patternIndex = 1;
+		counterX = 0;
 	}
 	// First mathod to be called, before anything else
 	public function setContainer(container:Sprite,backgroundSize:Point):Void{
@@ -139,6 +143,7 @@ class PatternFactory {
 	}
 
 	public function pattern_one(?withBorder:Bool = false):Void{
+		
 		var n = patternContainer.numChildren;
 		var r:Float = 10 + Math.random()*10 ;
 		var s = shapeUtil.getCircle(r,0,withBorder);
@@ -146,6 +151,7 @@ class PatternFactory {
 		s.y = get_CenterPosition_InsideContainer().y + (n/4) * Math.cos(n);
 		// last
 		patternContainer.addChild(s);
+		
 	}
 
 	public function pattern_two(?withBorder:Bool = false):Void{

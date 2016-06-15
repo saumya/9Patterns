@@ -72,8 +72,8 @@ class BitmapPatterns {
 				pattern_9();
 			default:
 				trace('case : default : TODO:Fix it for a better experience.');
-				this.patternIndex = 1;
-				pattern_one();
+				//this.patternIndex = 1;
+				pattern_1();
 			}// End Switch
 	}
 	private function pattern_1():Void{
