@@ -89,7 +89,7 @@ class Game extends Sprite {
 		var bgSize:Point = new Point(nWidth,nHeight - menu.height);
 		this.pFactory.setContainer(shapeContainer,bgSize);
 		//
-		//this.addEventListener(Event.ENTER_FRAME,render);
+		this.addEventListener(Event.ENTER_FRAME,render);
 	}
 	
 	public function render(e:Event):Void{
