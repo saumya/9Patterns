@@ -143,12 +143,21 @@ class PatternFactory {
 	}
 
 	public function pattern_one(?withBorder:Bool = false):Void{
-		
+		/*
 		var n = patternContainer.numChildren;
 		var r:Float = 10 + Math.random()*10 ;
 		var s = shapeUtil.getCircle(r,0,withBorder);
 		s.x = get_CenterPosition_InsideContainer().x + (n/4) * Math.sin(n);
 		s.y = get_CenterPosition_InsideContainer().y + (n/4) * Math.cos(n);
+		*/
+		var n = patternContainer.numChildren;
+		var i:UInt = 1000 - n;
+		var o = 30;
+		var p = Math.random()*n;
+		var s = shapeUtil.getCircle(o, 0xAAAAAA,true );
+		s.x = get_CenterPosition_InsideContainer().x + (Math.sin(i*p) * (i/4)) ;
+		s.y = get_CenterPosition_InsideContainer().y + (Math.cos(i*p) * (i/4)) ;
+		
 		// last
 		patternContainer.addChild(s);
 		
