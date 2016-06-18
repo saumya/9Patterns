@@ -69,6 +69,7 @@ class PatternFactory {
 	// API
 	public function nextPattern():Void{
 		this.patternIndex = this.patternIndex+1;
+		/*
 		if (this.isBitmapPatterns) {
 			if(patternIndex>=10){
 				this.patternIndex = 1;
@@ -77,6 +78,10 @@ class PatternFactory {
 			if(patternIndex>=19){
 				this.patternIndex = 1;
 			}
+		}*/
+
+		if(patternIndex>=10){
+			this.patternIndex = 1;
 		}
 		bitmapPatterns.nextPattern();
 	}
