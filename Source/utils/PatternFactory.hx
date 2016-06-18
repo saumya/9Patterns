@@ -319,51 +319,44 @@ class PatternFactory {
 		pattern_17(true,false);
 	}
 	//
-	private function p_1(?radius:Float=10,?withBorder:Bool=false):Void{
+	private function renderParticle(?d:UInt=2,?radius:Float=10,?withBorder:Bool=false,?isRandomPos:Bool=false):Void{
 		var n = patternContainer.numChildren;
-		//var r:Float = 10;
-		var r:Float = radius;
-		var s = shapeUtil.getCircle(r,0,withBorder);
-		s.x = get_CenterPosition_InsideContainer().x + (n/4) * Math.sin(n);
-		s.y = get_CenterPosition_InsideContainer().y + (n/4) * Math.cos(n);
-		
-		// last
+		var p:Float = 1;
+		if(isRandomPos){
+			p = Math.random()*n;
+		}
+		var s = shapeUtil.getCircle(radius,0,withBorder);
+		s.x = get_CenterPosition_InsideContainer().x + (n/d) * Math.sin(n*p);
+		s.y = get_CenterPosition_InsideContainer().y + (n/d) * Math.cos(n*p);
+		// add to display list
 		patternContainer.addChild(s);
+	}
+	private function p_1(?withBorder:Bool=false):Void{
+		renderParticle(2,10,withBorder);
 	}
 	private function p_2(?withBorder:Bool=false):Void{
-		p_1(20,withBorder);
+		renderParticle(2,20,withBorder);
 	}
 	private function p_3(?withBorder:Bool=false):Void{
-		p_1(40,withBorder);
+		renderParticle(2,40,withBorder);
 	}
 	private function p_4(?radius:Float=10,?withBorder:Bool=false):Void{
-		var s = shapeUtil.getCircle(radius,0,withBorder);
-		var n = patternContainer.numChildren;
-		s.x = get_CenterPosition_InsideContainer().x + (Math.sin(n) * (n/2)) ;
-		s.y = get_CenterPosition_InsideContainer().y + (Math.cos(n) * (n/2)) ;
-		//
-		patternContainer.addChild(s);
+		renderParticle(4,10,withBorder);
 	}
 	private function p_5(?withBorder:Bool=false):Void{
-		p_4(20,withBorder);
+		renderParticle(4,20,withBorder);
 	}
 	private function p_6(?withBorder:Bool=false):Void{
-		p_4(40,withBorder);
+		renderParticle(4,40,withBorder);
 	}
 	public function p_7(?radius:Float=10,?withBorder:Bool=false):Void{
-		var n = patternContainer.numChildren;
-		var p = Math.random()*n;
-		var s = shapeUtil.getCircle(radius,0,withBorder );
-		s.x = get_CenterPosition_InsideContainer().x + (Math.sin(n*p) * (n/2)) ;
-		s.y = get_CenterPosition_InsideContainer().y + (Math.cos(n*p) * (n/2)) ;
-		//
-		patternContainer.addChild(s);
+		renderParticle(2,10,withBorder,true);
 	}
 	private function p_8(?withBorder:Bool=false):Void{
-		p_7(20,withBorder);
+		renderParticle(2,20,withBorder,true);
 	}
 	private function p_9(?withBorder:Bool=false):Void{
-		p_7(40,withBorder);
+		renderParticle(2,40,withBorder,true);
 	}
 
 
