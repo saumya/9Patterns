@@ -103,35 +103,37 @@ class PatternFactory {
 			if(n>=1000){
 				this.patternContainer.removeChildren();
 			}
+			// TODO: move it to upper level and make a Toggle button for it
+			var hasBorder:Bool = false;
 			//switch
 			switch (this.patternIndex) {
 				case 1:
 					//pattern_one();
-					p_1();
+					p_1(hasBorder);
 				case 2:
 					//pattern_two();
-					p_2();
+					p_2(hasBorder);
 				case 3:
 					//pattern_three();
-					p_3();
+					p_3(hasBorder);
 				case 4:
 					//pattern_4();
-					p_4();
+					p_4(hasBorder);
 				case 5:
 					//pattern_5();
-					p_5();
+					p_5(hasBorder);
 				case 6:
 					//pattern_6();
-					p_6();
+					p_6(hasBorder);
 				case 7:
 					//pattern_7();
-					p_7();
+					p_7(hasBorder);
 				case 8:
 					//pattern_8();
-					p_8();
+					p_8(hasBorder);
 				case 9:
 					//pattern_9();
-					p_9();
+					p_9(hasBorder);
 				case 10:
 					pattern_10();
 				case 11:
