@@ -34,6 +34,8 @@ import utils.button.QuickButton;
 import utils.button.QuickButtonWithBgColor;
 import utils.button.Menu;
 
+import utils.display.SplashScreen;
+
 import utils.button.EventNames;
 
 class Game extends Sprite {
@@ -53,6 +55,8 @@ class Game extends Sprite {
 	private var nWidth:Float;
 	private var nHeight:Float;
 
+	private var splashScreen:SplashScreen;
+
 
 	public function new(newWidth:Float,newHeight:Float){
 		super();
@@ -66,6 +70,8 @@ class Game extends Sprite {
 		this.shapeUtil = new ShapeUtil();
 		this.buttonFactory = new ButtonFactory();
 		this.pFactory = new PatternFactory();
+
+		this.splashScreen = new SplashScreen();
 
 		this.isPaused = false;
 		//
@@ -88,8 +94,12 @@ class Game extends Sprite {
 		// set the container
 		var bgSize:Point = new Point(nWidth,nHeight - menu.height);
 		this.pFactory.setContainer(shapeContainer,bgSize);
-		//
-		this.addEventListener(Event.ENTER_FRAME,render);
+
+		// splashscreen
+		this.addChild(this.splashScreen);
+
+		// now it will start with the SplashScreen TAP 
+		//this.addEventListener(Event.ENTER_FRAME,render);
 	}
 	
 	public function render(e:Event):Void{
@@ -125,6 +135,7 @@ class Game extends Sprite {
 	// This actually renders the final output
 	public function restart(newWidth:Float,newHeight:Float):Void{
 		trace('restart');
+		splashScreen.restart();
 		//
 		nWidth = newWidth;
 		nHeight = newHeight;
