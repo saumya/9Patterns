@@ -78,6 +78,7 @@ class Game extends Sprite {
 		construct();
 	}
 	public function construct():Void{
+		//
 		this.shapeContainer = new Sprite();
 		this.addChild(this.shapeContainer);
 
@@ -96,10 +97,17 @@ class Game extends Sprite {
 		this.pFactory.setContainer(shapeContainer,bgSize);
 
 		// splashscreen
+		this.splashScreen.addEventListener(SplashScreen.SPLASH_EVENT,onSplashScreenTap);
 		this.addChild(this.splashScreen);
 
 		// now it will start with the SplashScreen TAP 
 		//this.addEventListener(Event.ENTER_FRAME,render);
+	}
+	private function onSplashScreenTap(e:Event):Void{
+		trace('onSplashScreenTap');
+		this.removeChild(splashScreen);
+		//
+		this.addEventListener(Event.ENTER_FRAME,render);
 	}
 	
 	public function render(e:Event):Void{

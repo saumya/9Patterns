@@ -4,10 +4,13 @@ import openfl.display.Sprite;
 import openfl.display.Graphics;
 
 import openfl.events.Event;
+import openfl.events.MouseEvent;
 
 import utils.button.QuickButtonWithBgColor;
 
 class SplashScreen extends Sprite {
+
+	public static var SPLASH_EVENT:String = "splashEvent";
 
 	private var btn1:QuickButtonWithBgColor;
 	private var colorValue:UInt;
@@ -30,6 +33,12 @@ class SplashScreen extends Sprite {
 		colorValue = Math.round(Math.random()*(256*256*256));
 		btn1 = new QuickButtonWithBgColor("9 Patterns",100,colorValue);
 		addChild(btn1);
+		//
+		this.addEventListener(MouseEvent.CLICK,onUserClick);
+	}
+	private function onUserClick(e:MouseEvent):Void{
+		trace('onUserClick');
+		dispatchEvent(new Event(SplashScreen.SPLASH_EVENT));
 	}
 	// This is where it is rendered now
 	// TODO: fix the rendering logic of the game from the beginning  with ADDED_TO_STAGE event
@@ -48,8 +57,6 @@ class SplashScreen extends Sprite {
 		var yPos:Float = (h-btn1.height)/2;
 		btn1.x = xPos;
 		btn1.y = yPos;
-		
-
 		//
 	}
 
