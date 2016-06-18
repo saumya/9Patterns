@@ -102,23 +102,32 @@ class PatternFactory {
 			//switch
 			switch (this.patternIndex) {
 				case 1:
-					pattern_one();
+					//pattern_one();
+					p_1();
 				case 2:
-					pattern_two();
+					//pattern_two();
+					p_2();
 				case 3:
-					pattern_three();
+					//pattern_three();
+					p_3();
 				case 4:
-					pattern_4();
+					//pattern_4();
+					p_4();
 				case 5:
-					pattern_5();
+					//pattern_5();
+					p_5();
 				case 6:
-					pattern_6();
+					//pattern_6();
+					p_6();
 				case 7:
-					pattern_7();
+					//pattern_7();
+					p_7();
 				case 8:
-					pattern_8();
+					//pattern_8();
+					p_8();
 				case 9:
-					pattern_9();
+					//pattern_9();
+					p_9();
 				case 10:
 					pattern_10();
 				case 11:
@@ -309,4 +318,53 @@ class PatternFactory {
 	public function pattern_18():Void {
 		pattern_17(true,false);
 	}
+	//
+	private function p_1(?radius:Float=10,?withBorder:Bool=false):Void{
+		var n = patternContainer.numChildren;
+		//var r:Float = 10;
+		var r:Float = radius;
+		var s = shapeUtil.getCircle(r,0,withBorder);
+		s.x = get_CenterPosition_InsideContainer().x + (n/4) * Math.sin(n);
+		s.y = get_CenterPosition_InsideContainer().y + (n/4) * Math.cos(n);
+		
+		// last
+		patternContainer.addChild(s);
+	}
+	private function p_2(?withBorder:Bool=false):Void{
+		p_1(20,withBorder);
+	}
+	private function p_3(?withBorder:Bool=false):Void{
+		p_1(40,withBorder);
+	}
+	private function p_4(?radius:Float=10,?withBorder:Bool=false):Void{
+		var s = shapeUtil.getCircle(radius,0,withBorder);
+		var n = patternContainer.numChildren;
+		s.x = get_CenterPosition_InsideContainer().x + (Math.sin(n) * (n/2)) ;
+		s.y = get_CenterPosition_InsideContainer().y + (Math.cos(n) * (n/2)) ;
+		//
+		patternContainer.addChild(s);
+	}
+	private function p_5(?withBorder:Bool=false):Void{
+		p_4(20,withBorder);
+	}
+	private function p_6(?withBorder:Bool=false):Void{
+		p_4(40,withBorder);
+	}
+	public function p_7(?radius:Float=10,?withBorder:Bool=false):Void{
+		var n = patternContainer.numChildren;
+		var p = Math.random()*n;
+		var s = shapeUtil.getCircle(radius,0,withBorder );
+		s.x = get_CenterPosition_InsideContainer().x + (Math.sin(n*p) * (n/2)) ;
+		s.y = get_CenterPosition_InsideContainer().y + (Math.cos(n*p) * (n/2)) ;
+		//
+		patternContainer.addChild(s);
+	}
+	private function p_8(?withBorder:Bool=false):Void{
+		p_7(20,withBorder);
+	}
+	private function p_9(?withBorder:Bool=false):Void{
+		p_7(40,withBorder);
+	}
+
+
 }
