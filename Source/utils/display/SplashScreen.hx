@@ -31,7 +31,7 @@ class SplashScreen extends Sprite {
 		var h:Float = this.stage.stageHeight;
 		*/
 		colorValue = Math.round(Math.random()*(256*256*256));
-		btn1 = new QuickButtonWithBgColor("9 Patterns",100,colorValue);
+		btn1 = new QuickButtonWithBgColor("9 Patterns",80,colorValue);
 		addChild(btn1);
 		//
 		this.addEventListener(MouseEvent.CLICK,onUserClick);
@@ -52,6 +52,12 @@ class SplashScreen extends Sprite {
 		g.beginFill(colorValue,1.0);
 		g.drawRect(0,0,w,h);
 		g.endFill();
+		/*
+		if(w<btn1.width){
+			btn1.scaleX = btn1.scaleY = 0.5;
+		}else{
+			btn1.scaleX = btn1.scaleY = 1.0;
+		}*/
 		//
 		var xPos:Float = (w - btn1.width)/2;
 		var yPos:Float = (h-btn1.height)/2;
