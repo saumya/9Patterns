@@ -5,6 +5,10 @@ import openfl.display.Sprite;
 import openfl.display.Graphics;
 import openfl.geom.Point;
 
+import motion.Actuate;
+import motion.easing.Bounce;
+
+
 import utils.ShapeUtil;
 import utils.BitmapPatterns;
 
@@ -319,35 +323,51 @@ class PatternFactory {
 		pattern_17(true,false);
 	}
 	//
-	private function renderParticle(?d:UInt=2,?radius:Float=10,?withBorder:Bool=false,?isRandomPos:Bool=false):Void{
+	private function renderParticle(?d:UInt=2,?radius:Float=10,?withBorder:Bool=false,?isRandomPos:Bool=false,?shouldScaleDown:Bool=false):Void{
 		var n = patternContainer.numChildren;
+		
 		var p:Float = 1;
 		if(isRandomPos){
 			p = Math.random()*n;
 		}
+
 		var s = shapeUtil.getCircle(radius,0,withBorder);
-		s.x = get_CenterPosition_InsideContainer().x + (n/d) * Math.sin(n*p);
-		s.y = get_CenterPosition_InsideContainer().y + (n/d) * Math.cos(n*p);
-		// add to display list
 		patternContainer.addChild(s);
+		//
+
+		var sx:Float = get_CenterPosition_InsideContainer().x + (n/d) * Math.sin(n*p);
+		var sy:Float = get_CenterPosition_InsideContainer().y + (n/d) * Math.cos(n*p);
+		var scaleXY:Float = 1;
+		if(shouldScaleDown){
+			scaleXY = 1 - (0.001*n); 
+			//s.scaleX = s.scaleY = x;
+		}
+		s.x = get_CenterPosition_InsideContainer().x;
+		s.y = get_CenterPosition_InsideContainer().y;
+		s.scaleX = s.scaleY = 0.1;
+		//s.x = sx;
+		//s.y = sy;
+		// lets animate the position
+		Actuate.tween(s,1,{x:sx,y:sy,scaleX:scaleXY,scaleY:scaleXY});
+
 	}
 	private function p_1(?withBorder:Bool=false):Void{
 		renderParticle(2,10,withBorder);
 	}
 	private function p_2(?withBorder:Bool=false):Void{
-		renderParticle(2,20,withBorder);
+		renderParticle(2,10,withBorder,false,true);
 	}
 	private function p_3(?withBorder:Bool=false):Void{
-		renderParticle(2,40,withBorder);
-	}
-	private function p_4(?radius:Float=10,?withBorder:Bool=false):Void{
 		renderParticle(4,10,withBorder);
 	}
+	private function p_4(?radius:Float=10,?withBorder:Bool=false):Void{
+		renderParticle(4,10,withBorder,false,true);
+	}
 	private function p_5(?withBorder:Bool=false):Void{
-		renderParticle(4,20,withBorder);
+		renderParticle(7,10,withBorder);
 	}
 	private function p_6(?withBorder:Bool=false):Void{
-		renderParticle(4,40,withBorder);
+		renderParticle(9,10,withBorder);
 	}
 	public function p_7(?radius:Float=10,?withBorder:Bool=false):Void{
 		renderParticle(2,10,withBorder,true);
