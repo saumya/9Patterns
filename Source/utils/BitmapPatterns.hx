@@ -76,7 +76,50 @@ class BitmapPatterns {
 				pattern_1();
 			}// End Switch
 	}
+
+	private function renderParticle(?d:UInt=2,?isRandomPos:Bool=false,?shouldScaleDown:Bool=false,?shouldTween:Bool=false,?shouldBounce:Bool=false):Void{
+		var n = container.numChildren;
+
+		var cx = (bgSize.x/2) ;
+		var cy = (bgSize.y/2) ;
+		
+		var p:Float = 1;
+		if(isRandomPos){
+			p = Math.random()*n;
+		}
+		//
+		//var s = shapeUtil.getCircle(radius,0,withBorder);
+		var s:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
+		container.addChild(s);
+		//
+		var sx:Float = cx + (n/d) * Math.sin(n*p);
+		var sy:Float = cy + (n/d) * Math.cos(n*p);
+		var scaleXY:Float = 1;
+		if(shouldScaleDown){
+			scaleXY = 1 - (0.001*n); 
+		}
+		
+		// lets animate the position
+		if(shouldTween){
+			s.x = cx;
+			s.y = cy;
+			s.scaleX = s.scaleY = 0.1;
+			if(shouldBounce){
+				Actuate.tween(s,1.0,{x:sx,y:sy,scaleX:scaleXY,scaleY:scaleXY}).ease(Bounce.easeOut);
+			}else{
+				Actuate.tween(s,2.0,{x:sx,y:sy,scaleX:scaleXY,scaleY:scaleXY});
+			}
+		}else{
+			s.x = sx;
+			s.y = sy;
+			s.scaleX = s.scaleY = scaleXY;
+		}
+		
+
+	}
+
 	private function pattern_1():Void{
+		/*
 		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
 		c.x = Math.random()*(bgSize.x);
 		c.y = Math.random()*(bgSize.y);
@@ -84,6 +127,9 @@ class BitmapPatterns {
 		c.scaleX = c.scaleY = 0.4;
 		container.addChild(c);
 		//Actuate.tween(this,1.0,{ rotation:r }).ease (Quad.easeOut);
+		*/
+		renderParticle(2,false,false,true,true);
+
 	}
 	private function pattern_2():Void{
 		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
