@@ -82,19 +82,19 @@ class BitmapPatterns {
 
 		var cx = (bgSize.x/2) ;
 		var cy = (bgSize.y/2) ;
-		
+		//
 		var p:Float = 1;
 		if(isRandomPos){
 			p = Math.random()*n;
 		}
 		//
-		//var s = shapeUtil.getCircle(radius,0,withBorder);
 		var s:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
 		container.addChild(s);
 		//
 		var sx:Float = cx + (n/d) * Math.sin(n*p);
 		var sy:Float = cy + (n/d) * Math.cos(n*p);
 		var scaleXY:Float = 1;
+		//
 		if(shouldScaleDown){
 			scaleXY = 1 - (0.001*n); 
 		}
@@ -132,14 +132,19 @@ class BitmapPatterns {
 
 	}
 	private function pattern_2():Void{
+		/*
 		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
 		counter++;
 		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
 		c.y = (bgSize.y/2)+ Math.cos(counter)*counter;
 		c.scaleX = c.scaleY = 0.4;
 		container.addChild(c);
+		*/
+		renderParticle(2,false,true,false,false);
+		//renderParticle(2,10,withBorder,false,true);
 	}
 	private function pattern_3():Void{
+		/*
 		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
 		counter++;
 		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
@@ -147,8 +152,11 @@ class BitmapPatterns {
 		c.rotation = counter;
 		c.scaleX = c.scaleY = 0.4;
 		container.addChild(c);
+		*/
+		renderParticle(4,false);
 	}
 	private function pattern_4():Void{
+		/*
 		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
 		counter++;
 		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
@@ -156,8 +164,11 @@ class BitmapPatterns {
 		c.rotation = (22.5)*(counter);
 		c.scaleX = c.scaleY = 0.4;
 		container.addChild(c);
+		*/
+		renderParticle(4,false,true);
 	}
 	private function pattern_5():Void{
+		/*
 		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
 		counter++;
 		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
@@ -165,8 +176,11 @@ class BitmapPatterns {
 		c.rotation = (2)*(counter);
 		c.scaleX = c.scaleY = 0.4;
 		container.addChild(c);
+		*/
+		renderParticle(7,false,false,true);
 	}
 	private function pattern_6():Void{
+		/*
 		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
 		counter++;
 		c.x = (bgSize.x/2)+ Math.sin(counter)*counter;
@@ -174,8 +188,11 @@ class BitmapPatterns {
 		c.rotation = (2)*(counter);
 		c.scaleX = c.scaleY = Math.sin(counter);
 		container.addChild(c);
+		*/
+		renderParticle(9,false,false,true);
 	}
 	private function pattern_7():Void{
+		/*
 		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
 		counter++;
 		c.x = (bgSize.x/2)+ Math.sin(counter)*(counter/5);
@@ -184,8 +201,11 @@ class BitmapPatterns {
 		var b = (1 - (1/1000)*(counter));
 		c.scaleX = c.scaleY = b;
 		container.addChild(c);
+		*/
+		renderParticle(2,true,false,true);
 	}
 	private function pattern_8():Void{
+		/*
 		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
 		counter++;
 		c.x = (bgSize.x/2)+ Math.sin(counter)*(counter/5);
@@ -193,8 +213,11 @@ class BitmapPatterns {
 		var b = (1 - (1/1000)*(counter));
 		c.scaleX = c.scaleY = b;
 		container.addChild(c);
+		*/
+		renderParticle(2,true,false);
 	}
 	private function pattern_9():Void{
+		/*
 		var c:BitmapSprite = shapeUtil.getBitmapSprite(ShapeUtil.SQUARE,true);
 		counter++;
 		c.x = (bgSize.x/2)+ Math.sin(counter)*(counter/5);
@@ -203,5 +226,7 @@ class BitmapPatterns {
 		var b = (1 - (1/1000)*(counter));
 		c.scaleX = c.scaleY = b;
 		container.addChild(c);
+		*/
+		renderParticle(2,true,false,true);
 	}
 }
