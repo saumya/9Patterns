@@ -13,6 +13,7 @@ class SplashScreen extends Sprite {
 	public static var SPLASH_EVENT:String = "splashEvent";
 
 	private var btn1:QuickButtonWithBgColor;
+	private var btn2:QuickButtonWithBgColor;
 	private var colorValue:UInt;
 	
 	public function new() {
@@ -32,7 +33,9 @@ class SplashScreen extends Sprite {
 		*/
 		colorValue = Math.round(Math.random()*(256*256*256));
 		btn1 = new QuickButtonWithBgColor("9 Patterns",80,colorValue);
+		btn2 = new QuickButtonWithBgColor("Tap to continue",40,colorValue);
 		addChild(btn1);
+		addChild(btn2);
 		//
 		this.addEventListener(MouseEvent.CLICK,onUserClick);
 	}
@@ -60,10 +63,11 @@ class SplashScreen extends Sprite {
 		}*/
 		//
 		var xPos:Float = (w - btn1.width)/2;
-		var yPos:Float = (h-btn1.height)/2;
+		var yPos:Float = (h-btn1.height)/2 - 50;
 		btn1.x = xPos;
 		btn1.y = yPos;
-		//
+		btn2.x = (w-btn2.width)/2;
+		btn2.y = yPos + 100;
 	}
 
 
