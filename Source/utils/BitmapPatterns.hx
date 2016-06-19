@@ -5,6 +5,8 @@ import openfl.display.Sprite;
 import openfl.display.Bitmap;
 import openfl.geom.Point;
 
+import openfl.filters.BlurFilter;
+
 import utils.ShapeUtil;
 import utils.display.BitmapSprite;
 
@@ -93,7 +95,8 @@ class BitmapPatterns {
 		//
 		var sx:Float = cx + (n/d) * Math.sin(n*p);
 		var sy:Float = cy + (n/d) * Math.cos(n*p);
-		var scaleXY:Float = 1;
+		var scaleXY:Float = 0.4; // default
+		//var rotationXY:Float = Math.random() * 90;
 		//
 		if(shouldScaleDown){
 			scaleXY = 1 - (0.001*n); 
@@ -105,17 +108,18 @@ class BitmapPatterns {
 			s.y = cy;
 			s.scaleX = s.scaleY = 0.1;
 			if(shouldBounce){
-				Actuate.tween(s,1.0,{x:sx,y:sy,scaleX:scaleXY,scaleY:scaleXY}).ease(Bounce.easeOut);
+				Actuate.tween(s,1.0,{x:sx,y:sy,scaleX:scaleXY,scaleY:scaleXY,rotation:n}).ease(Bounce.easeOut);
 			}else{
-				Actuate.tween(s,2.0,{x:sx,y:sy,scaleX:scaleXY,scaleY:scaleXY});
+				Actuate.tween(s,2.0,{x:sx,y:sy,scaleX:scaleXY,scaleY:scaleXY,rotation:n});
 			}
 		}else{
 			s.x = sx;
 			s.y = sy;
 			s.scaleX = s.scaleY = scaleXY;
+			s.rotation = n;
 		}
-		
 
+		//Actuate.effects (s, 1).filter (BlurFilter, { blurX: 10, blurY: 10 });
 	}
 
 	private function pattern_1():Void{
@@ -140,7 +144,7 @@ class BitmapPatterns {
 		c.scaleX = c.scaleY = 0.4;
 		container.addChild(c);
 		*/
-		renderParticle(2,false,true,false,false);
+		renderParticle(2,false,true,true,true);
 		//renderParticle(2,10,withBorder,false,true);
 	}
 	private function pattern_3():Void{
@@ -153,7 +157,7 @@ class BitmapPatterns {
 		c.scaleX = c.scaleY = 0.4;
 		container.addChild(c);
 		*/
-		renderParticle(4,false);
+		renderParticle(4,false,false,true,true);
 	}
 	private function pattern_4():Void{
 		/*
@@ -165,7 +169,7 @@ class BitmapPatterns {
 		c.scaleX = c.scaleY = 0.4;
 		container.addChild(c);
 		*/
-		renderParticle(4,false,true);
+		renderParticle(4,false,true,true,true);
 	}
 	private function pattern_5():Void{
 		/*
