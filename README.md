@@ -2,6 +2,8 @@
 ================
 An [OpenFL][2] application to generate patterns.
 
+Now in Play Store.
+
 ### Assets Used
 
  - [archistico][1]
