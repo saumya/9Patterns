@@ -2,7 +2,7 @@
 ================
 An [OpenFL][2] application to generate patterns.
 
-Now in Play Store.
+Now in [Play Store][5].
 
 ### Assets Used
 
@@ -38,3 +38,4 @@ keytool -v -genkey -v -keystore myApp.keystore -alias someName -keyalg RSA -vali
 [2]: http://openfl.org/
 [3]: http://stackoverflow.com/questions/11446121/how-do-i-generate-a-keystore-for-google-play/11498282#11498282
 [4]: http://www.openfl.org/archive/community/general-discussion/submitting-nme-app-google-play/
+[5]: https://play.google.com/store/apps/details?id=com.saumya.ninePatterns&hl=en
