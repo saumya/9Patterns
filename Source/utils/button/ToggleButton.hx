@@ -10,6 +10,11 @@ import motion.Actuate;
 import motion.easing.Quad;
 import motion.easing.Elastic;
 
+/*
+ *
+ * This makes a vector button. A toggle will swap from left to right on click.
+ *
+ */
 
 class ToggleButton extends Sprite {
 
